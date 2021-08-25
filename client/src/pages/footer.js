@@ -24,7 +24,7 @@ function Footer(){
                     </ul>
             </div>
             <div className='footer_container_logo'>
-                <img src='/logo1.png' alt='logo' className='footer_logo'/>
+                <img src='/logo4.png' alt='logo' className='footer_logo'/>
             </div>
         </div>
             <div className='footer_bottom'>
