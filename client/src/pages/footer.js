@@ -23,13 +23,13 @@ function Footer(){
                         <li><a href=''>Server Repository</a></li>
                     </ul>
             </div>
-            <div className='footer_container'>
-                <img src='/logo1.png' alt='logo' />
+            <div className='footer_container_logo'>
+                <img src='/logo1.png' alt='logo' className='footer_logo'/>
             </div>
+        </div>
             <div className='footer_bottom'>
                 <p>copyright &copy;2021 슬기로운 코딩생활 all right reserved.</p>
             </div>
-        </div>
         </div>
     </>
   );

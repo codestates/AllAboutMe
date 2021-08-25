@@ -4,7 +4,6 @@
     box-sizing: border-box;
 }
 
-
 .navbar {
     width: 100%;
     color: white;
@@ -26,7 +25,7 @@
 }
 
 .logo {
-    margin-left: 15px;
+    margin-left: 20px;
 }
 
 .logo h2{
@@ -39,14 +38,30 @@ nav{
 }
 nav ul{
     display: flex;
-    margin-right: 20px;
+    width: 100%;
+    justify-content:flex-end;
 }
 nav ul li{
     list-style: none;
+    width: 80px;
+    height: 30px;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    margin-right: 10px;
+}
+nav ul li:hover{
+    background-color: white;
+    border-radius: 4px;
 }
 nav ul li a{
     color: white;
     text-decoration: none;
     font-size: 17px;
     margin: 0px 10px;
+    text-align: center;
+}
+nav ul li a:hover{
+    color: #8EC0E4;
 }
