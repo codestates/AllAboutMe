@@ -5,7 +5,7 @@ const cookieParser = require('cookie-parser');
 const express = require('express');
 
 const app = express();
-const port = process.env.HTTP_PORT;
+const port = 4000;
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -20,6 +20,15 @@ app.use(cookieParser());
 
 // TODO: 미들웨어 jwt verify 함수 만들기
 
+// 라우터 연결
+
+
+
+// test
+app.get('/', (req, res) => {
+  res.status(200).send('Welcome to All About Me Page!');
+})
+
 app.listen(port, () => {
-  console.log('Hello World!');
+  console.log(`listening on port ${port}`);
 })
