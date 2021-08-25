@@ -2,6 +2,7 @@ import React from 'react';
 import './home.css'
 
 function Home(){
+  //!슬라이드 코드 (시간 남으면 합시다.)
   // const saTriggerMargin = 300;
   // const saElementList = document.querySelectorAll('.sa');
 
