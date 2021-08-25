@@ -7,10 +7,10 @@ function App() {
   return (
     <div className="App">
       <Nav />
-      {/* <Home />
+      {/* <Home /> */}
       <footer>
         <Footer />
-      </footer> */}
+      </footer>
     </div>
   );
 }
