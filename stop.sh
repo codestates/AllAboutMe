@@ -1,4 +1,4 @@
 #!/bin/bash
-cd /home/ubuntu/ALlAboutMe/server
+cd /home/ubuntu/AllAboutMe/server
 pm2 stop app.js 2> /dev/null || true
 pm2 delete app.js 2> /dev/null || true
