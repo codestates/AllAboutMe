@@ -26,6 +26,7 @@
 }
 
 .footer_container h3{
+    font-family: Georgia, "Times New Roman", serif;
     font-size: 15px;
     font-weight: 600;
     color: rgb(20, 20, 20);
@@ -53,7 +54,7 @@
 }
 
 .footer_bottom p{
-    font-size: 13px;
+    font-size: 12px;
     display: flex;
     align-items: center;
     justify-content: center;
