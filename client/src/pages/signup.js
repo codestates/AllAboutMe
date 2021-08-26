@@ -39,17 +39,15 @@ function SignUp(){
                 </input>
             </div>
             <div>
-                <div className="signup-notice-message">
-                    Notice Message
+                <div className="signup-notice-message-box">
+                    <div>Notice Message</div>
                 </div>
             </div>
-            <div className="signup-checkbox-agree">          
-            
-                    <a className="signup-agree"></a>
+            <div>
+                <div className="signup-checkbox-agree-container">                    
                     <input className="signup-checkbox" type="checkbox"/>
-                    <div className="signup-agree">동의합니다.</div>
-
-            
+                    <div className="signup-agree">동의합니다.</div>  
+                </div>
             </div>
             <button className="signup-button">Sign up</button>
         </div>
