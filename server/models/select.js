@@ -11,10 +11,6 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      // * ==========[Associate belongsTo]==========
-      select.belongsTo(models.test, {
-        foreignKey: 'testId'
-      })
     }
   };
   select.init({

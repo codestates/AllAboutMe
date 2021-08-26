@@ -47,7 +47,7 @@ module.exports = {
     }).then(function(){
       queryInterface.addColumn('comments','postId',{
           type: Sequelize.INTEGER,
-          references:{model: 'users', key: 'id'}
+          references:{model: 'posts', key: 'id'}
       })
     })
   },
