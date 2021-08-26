@@ -37,10 +37,6 @@ function App() {
             <Test />
           </Route>
         </Switch>
-
-        <footer>
-          <Footer />
-        </footer>
     </BrowserRouter>
   );
 }

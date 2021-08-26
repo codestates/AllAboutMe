@@ -1,5 +1,7 @@
 import React from 'react';
+import Footer from './footer';
 import './login.css'
+
 
 function login(){
   return (
@@ -20,6 +22,9 @@ function login(){
         </input>
     </div>
     <button className="login-button">Login</button>
+    <footer className='login_footer'>
+        <Footer />
+    </footer>
 </div>
 )
 };

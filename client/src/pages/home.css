@@ -144,11 +144,38 @@
 }
 
 
+
+
+
+.home_container_button{
+  width: 150px;
+  align-items: center;
+  justify-content: center;
+  justify-items: center;
+  display: flex;
+  padding-bottom: 100px;
+  padding-top: 50px;
+}
+
+.home_container_button button{
+  width: 150px;
+  height: 50px;
+  border-radius: 25px;
+  border: solid #8EC0E4;
+  background-color:rgba(255, 255, 255, 0);
+  color: #8EC0E4;
+  font-size: 25px;
+  font-family: Georgia, "Times New Roman", serif;
+}
+
+
+
+
+
 .home_button{
   width: 100%;
   align-items: center;
   justify-content: center;
-  align-items: center;
   justify-items: center;
   display: flex;
   padding-bottom: 200px;
@@ -166,27 +193,23 @@
   font-family: Georgia, "Times New Roman", serif;
 }
 
-.home_container_button{
-  width: 150px;
+.home_button a{
+  display: flex;
   align-items: center;
   justify-content: center;
-  align-items: center;
   justify-items: center;
-  display: flex;
-  padding-bottom: 100px;
-  padding-top: 50px;
+  text-decoration: none;
 }
 
-.home_container_button button{
-  width: 150px;
-  height: 50px;
-  border-radius: 25px;
-  border: solid #8EC0E4;
-  background-color:rgba(255, 255, 255, 0);
-  color: #8EC0E4;
-  font-size: 25px;
-  font-family: Georgia, "Times New Roman", serif;
-}
+
+
+
+
+
+
+
+
+
 
 @media screen and (max-width: 1199px){
   .home_logo{
