@@ -10,6 +10,6 @@ router.post('/login', signControllers.login);
 // router.post('/github');
 
 // logout
-// router.get('/logout', signControllers.logout);
+router.get('/logout', signControllers.logout);
 
 module.exports = router;
