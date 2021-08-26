@@ -6,6 +6,7 @@ import Footer from './pages/footer'
 import Home from './pages/home'
 import Login from './pages/login';
 import Mypage from './pages/mypage';
+import Test from './pages/test';
 
 function App() {
   const user = {
@@ -31,6 +32,9 @@ function App() {
           </Route>
           <Route path='/mypage'>
             <Mypage user={user}/>
+          </Route>
+          <Route path='/test'>
+            <Test />
           </Route>
         </Switch>
 
