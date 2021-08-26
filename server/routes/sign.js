@@ -6,8 +6,8 @@ const signControllers = require('../controllers/signControllers');
 router.post('/login', signControllers.login);
 
 // TODO: oauth login
-// router.post('/google');
-// router.post('/github');
+// router.post('/google', signControllers.loginGoogle);
+// router.post('/github', signControllers.loginGithub);
 
 // logout
 router.get('/logout', signControllers.logout);

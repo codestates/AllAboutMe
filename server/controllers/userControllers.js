@@ -10,12 +10,17 @@ module.exports = {
     return res.status(200).send('edit userInfo');
   },
 
-  // GET /user/favorite/:id
+  // GET /user/:id/favorite
   favoriteList: (req, res) => {
     return res.status(200).send('user favorite list');
   },
 
-  // DELETE /user/favorite/:id
+  // POST /user/:id/favorite
+  addFavorite: (req, res) => {
+    return res.status(200).send('add user favorite');
+  },
+
+  // DELETE /user/:id/favorite
   deleteFavorite: (req, res) => {
     return res.status(200).send('delete user favorite')
   },
