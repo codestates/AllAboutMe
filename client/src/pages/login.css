@@ -44,21 +44,30 @@
     margin-right: auto;
 }
 
+.login-input:focus{
+    outline: none;
+}
+
 input::placeholder{
     color : rgb(180, 180, 180);
 }
 
 .login-button {
-    width: 150px;
+    width: 130px;
     height: 50px;
     margin-top : 20px;
     border-radius: 25px;
     border: solid #8EC0E4;
     background-color:rgba(255, 255, 255, 0);
     color: #8EC0E4;
-    font-size: 25px;
+    font-size: 20px;
     font-family: Georgia, "Times New Roman", serif;
     display : table;
     margin-left: auto;
     margin-right: auto;
+}
+
+.login_footer{
+    position: fixed;
+    bottom: 0;
 }

@@ -23,6 +23,9 @@ function Nav(){
                         <li>
                             <Link to='/mypage'>My</Link>
                         </li>
+                        <li>
+                            <Link to='/test'>Test</Link>
+                        </li>
                     </ul>
                 </nav>
             </div>

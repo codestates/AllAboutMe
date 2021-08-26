@@ -1,5 +1,8 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+import Footer from './footer';
 import './home.css'
+
 
 function Home(){
   //!슬라이드 코드 (시간 남으면 합시다.)
@@ -35,7 +38,9 @@ function Home(){
         내가 무엇을 좋아하는지, 나의 관심사는 무엇인지에 대한 고민을 유도하여<br/>
         자신이 원하는 것에 대해 선명해지는 시간을 가질 수 있게 도와줍니다.
         <div className='home_container_button'>
-          <button type='button' onclick='location.href=signup.js'>start</button>
+          <Link to='/test'>
+            <button type='button' onclick='location.href=signup.js'>start</button>
+          </Link>
         </div>
         </p>
       </div>
@@ -54,8 +59,13 @@ function Home(){
         </p>
       </div>
       <div className='sa sa-up home_button'>
-        <button type='button' onclick='location.href=signup.js'>start</button>
+        <Link to='/test'>
+          <button type='button' onclick='location.href=signup.js'>start</button>
+        </Link>
       </div>
+      <footer>
+          <Footer />
+        </footer>
     </div>
   );
 };
