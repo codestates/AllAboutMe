@@ -225,7 +225,7 @@
     margin: 0px;
   }
   .home_container4{
-    height: 600px;
+    height: 800px;
     flex-direction: column;  
     justify-content: center;
     align-items: center;
@@ -245,6 +245,16 @@
   }
   .home_container_button{
     width: 100%;
+  }
+  .home_button{
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    align-items: center;
+    justify-items: center;
+    display: flex;
+    padding-bottom: 150px;
+    margin-top: 0px;
   }
 }
 

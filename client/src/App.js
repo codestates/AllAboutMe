@@ -1,12 +1,21 @@
 import './App.css';
-import SignUp from './pages/signup.js'
 import { BrowserRouter, Route, Switch, Link } from 'react-router-dom';
+import SignUp from './pages/signup'
 import Nav from './pages/nav.js';
-import Footer from './pages/footer.js'
-import Home from './pages/home.js'
+import Footer from './pages/footer'
+import Home from './pages/home'
 import Login from './pages/login';
+import Mypage from './pages/mypage';
 
 function App() {
+  const user = {
+    "id" : 1,
+    "img" : "/happynewyear.jpg",
+    "email" : "happynewyear@gmail.com",
+    "name" : "전새복",
+    "phone" : "010-0000-0000"
+  }
+
   return (
     <BrowserRouter>
         <Nav />
@@ -19,6 +28,9 @@ function App() {
           </Route>
           <Route path='/login'>
             <Login />
+          </Route>
+          <Route path='/mypage'>
+            <Mypage user={user}/>
           </Route>
         </Switch>
 
