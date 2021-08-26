@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Footer from './footer';
 import './mypage.css'
 
 function Mypage({ user }){
@@ -40,6 +41,9 @@ function Mypage({ user }){
                     <p>{menuArr[currentTab].content}</p>
                 </div>
             </div>
+            <footer className='mypage_footer'>
+                <Footer />
+            </footer>
         </div>
     </>
   );

@@ -1,4 +1,5 @@
 import React from "react";
+import Footer from "./footer";
 import './signup.css'
 
 function SignUp(){
@@ -49,7 +50,10 @@ function SignUp(){
                     <div className="signup-agree">동의합니다.</div>  
                 </div>
             </div>
-            <button className="signup-button">Sign up</button>
+            <button className="signup-button">Join us !</button>
+            <footer className='signup_footer'>
+                <Footer />
+            </footer>
         </div>
     )
 };
