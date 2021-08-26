@@ -1,4 +1,15 @@
 const express = require('express');
 const router = express.Router();
+const signControllers = require('../controllers/signControllers');
 
-router.post('/')
+// email login
+router.post('/login', signControllers.login);
+
+// TODO: oauth login
+// router.post('/google', signControllers.loginGoogle);
+// router.post('/github', signControllers.loginGithub);
+
+// logout
+router.get('/logout', signControllers.logout);
+
+module.exports = router;

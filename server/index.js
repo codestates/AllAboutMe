@@ -7,6 +7,10 @@ const express = require('express');
 const app = express();
 const port = process.env.HTTP_PORT || 80;
 
+// router
+const routes = require('./routes');
+
+// middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(
@@ -21,7 +25,7 @@ app.use(cookieParser());
 // TODO: 미들웨어 jwt verify 함수 만들기
 
 // 라우터 연결
-
+app.use('/', routes);
 
 
 // test
