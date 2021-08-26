@@ -4,7 +4,7 @@ import './signup.css'
 function SignUp(){
     
     return (
-        <div className="container">
+        <div className="signup-container">
             <div className="signup-logo">Sign up</div>
                 <input 
                 className="signup-input"
@@ -43,11 +43,13 @@ function SignUp(){
                     Notice Message
                 </div>
             </div>
-            <div>
-                <div className="signup-notice-message">
-                    <input className="signup-checkbox" type="checkbox"/> 
-                    <a className="signup-agree">동의합니다.</a>
-                </div>  
+            <div className="signup-checkbox-agree">          
+            
+                    <a className="signup-agree"></a>
+                    <input className="signup-checkbox" type="checkbox"/>
+                    <div className="signup-agree">동의합니다.</div>
+
+            
             </div>
             <button className="signup-button">Sign up</button>
         </div>
