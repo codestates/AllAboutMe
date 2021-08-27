@@ -9,6 +9,5 @@ export PRODUCTION_DATABASE_HOST=$(aws ssm get-parameters --region ap-northeast-2
 export PRODUCTION_DATABASE_PORT=$(aws ssm get-parameters --region ap-northeast-2 --names PRODUCTION_DATABASE_PORT --query Parameters[0].Value | sed 's/"//g')
 
 npx sequelize-cli db:migrate
-npx sequelize-cli db:seed:all
 
 authbind --deep pm2 start index.js
