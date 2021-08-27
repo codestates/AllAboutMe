@@ -49,12 +49,12 @@
 }
 
 .slide {
-    opacity: 0;
+    opacity: 0.5;
     transition-duration: 1s ease;
-  }
-  
-  .slide.active {
+}
+
+.slide.active {
     opacity: 1;
     transition-duration: 1s;
-    transform: scale(1.08);
-  }
+    transform: scale(0.92);
+}

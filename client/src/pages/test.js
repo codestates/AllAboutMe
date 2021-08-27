@@ -14,6 +14,11 @@ function Test(){
       { 'id' : 4, 'name' : '한식', 'img' : '/3dog.png'},
       { 'id' : 5, 'name' : '운동', 'img' : '/4dog.png'},
       { 'id' : 6, 'name' : '동물', 'img' : '/5dog.png'},
+    ],
+    [
+      { 'id' : 1, 'name' : '카페', 'img' : '/1starbucks.jpg'},
+      { 'id' : 2, 'name' : '운동', 'img' : '/1dog.png'},
+      { 'id' : 3, 'name' : '동물', 'img' : '/2dog.png'}
     ]
   ]
 
@@ -35,9 +40,9 @@ function Test(){
         </div>
         <div className='test_imgbox'>
           {category[currentImg].map((item, index) => {
-            return (<div className={index === currentImg ?'test_img slide active' :'test_img slide'}>
+            return (<div className={index === currentImg?'test_img slide active':'test_img slide' }>
                       <img src={item.img} alt={item.name}/>
-                    </div>)
+                    </div>)         
           })}
         </div>
         <div className='test_arrow_right' onClick={() => nextArrow(currentImg)}>
