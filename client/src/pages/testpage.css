@@ -1,0 +1,124 @@
+.testpage_container {
+    width: 100%;
+    height: 100%;
+    margin-top: 150px;
+}
+
+.testpage_matchImg_box{
+    width: 400px;
+    border-radius: 25px;
+    overflow: hidden; 
+}
+/* 
+.testpage_matchImg{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;  
+} */
+
+.testpage_tournament_score{
+    font-size : 30px;
+    font-weight: 1000;
+    font-family: 'Times New Roman', Times, serif;
+    text-align: center;
+}
+
+.testpage_match_name{
+    font-size : 30px;
+    font-weight: 1000;
+    font-family :'NanumMyeongjo';
+    text-align : center;
+    margin-top: 30px;
+    margin-bottom: 50px;
+}
+.testpage_body_wrap{
+    display:flex;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+    justify-content: center;
+
+}
+
+.testpage_match_vs{
+    font-size : 30px;
+    font-family :'Times New Roman', Times, serif;;
+    font-weight: 1000;
+    padding-bottom: 60px;
+    width: 100px;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.testpage_matchImg_matchBtn_container{
+    width : 400px;
+}
+.testpage_btn{
+    width: 130px;
+    height: 50px;
+    margin-top : 20px;
+    border-radius: 25px;
+    border: solid #8EC0E4;
+    background-color:rgba(255, 255, 255, 0);
+    color: #8EC0E4;
+    font-size: 20px;
+    font-family: Georgia, "Times New Roman", serif;
+    display : table;
+    margin-left: auto;
+    margin-right: auto;
+}
+/* 
+.test_container{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.test_arrow_left {
+    display: flex;
+    justify-content: center;
+}
+
+.test_arrow_right {
+    display: flex;
+    justify-content: center;
+}
+
+.arrow {
+    font-size: 70px;
+    background-color: #8ec0e400;
+    color: #8EC0E4;
+}
+
+.test_imgbox{
+    display: flex;
+    margin-top: 20px;
+    justify-content: center;
+    align-items: center;
+}
+
+.test_img{
+    width: 300px;
+    height: 630px;
+    padding: 20px;
+    margin: 20px;
+    background-color: #8EC0E4;
+    border: solid 0px;
+    border-radius: 20px;
+}
+
+.test_img img{
+    width: 250px;
+}
+
+.slide {
+    opacity: 0.5;
+    transition-duration: 1s ease;
+}
+
+.slide.active {
+    opacity: 1;
+    transition-duration: 1s;
+    transform: scale(0.92);
+} */

@@ -6,6 +6,7 @@ import Home from './pages/home'
 import Login from './pages/login';
 import Mypage from './pages/mypage';
 import Test from './pages/test';
+import TestPage from './pages/testpage';
 
 function App() {
   const user = {
@@ -34,6 +35,9 @@ function App() {
           </Route>
           <Route path='/test'>
             <Test />
+          </Route>
+          <Route path='/testpage'>
+            <TestPage />
           </Route>
         </Switch>
     </BrowserRouter>

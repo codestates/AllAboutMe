@@ -19,10 +19,13 @@ function Test(){
       { 'id' : 4, 'name' : '한식', 'img' : '/3dog.png'},
       { 'id' : 5, 'name' : '운동', 'img' : '/4dog.png'},
       { 'id' : 6, 'name' : '동물', 'img' : '/5dog.png'},
+
+
   ]
   const [current, setCurrent] = useState(0)
   return (
     <div className='test'>
+
     <div className='test_container'>
       <Slider {...settings}>
           {category.map((item) => {
