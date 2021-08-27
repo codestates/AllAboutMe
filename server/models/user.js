@@ -12,10 +12,10 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       // define association here
       // * ==========[Associate hasMany]==========
-      user.hasMany(models.commnet, {
+      user.hasMany(models.comment, {
         foreignKey:'userId'
       })
-      user.hasMany(models.favoriate, {
+      user.hasMany(models.favorite, {
         foreignKey:'userId'
       })
       user.hasMany(models.post, {

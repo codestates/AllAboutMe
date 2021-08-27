@@ -12,4 +12,7 @@ router.post('/login', signControllers.login);
 // logout
 router.get('/logout', signControllers.logout);
 
+// * ==========[signup]==========
+router.post('/signup', signControllers.signup);
+
 module.exports = router;
