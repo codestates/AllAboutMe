@@ -12,7 +12,7 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       // define association here
       // * ==========[Associate hasMany]==========
-      post.hasMany(models.commnet, {
+      post.hasMany(models.comment, {
         foreignKey:'postId'
       })
       // * ==========[Associate belongsTo]==========
