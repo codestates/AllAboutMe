@@ -1,9 +1,23 @@
 const { user } = require('../models')
+const { generateAccessToken } = require('../middleware/jwt')
 
 module.exports = {
-  login: (req, res) => {
-    // const { email, password } = req.body;
-    return res.status(200).send('login');
+  login: async (req, res) => {
+    const { email, password } = req.body;
+    const userInfo = await user.findOne({ where: { email } });
+
+    if (!userInfo) {
+      return res.status(404).send({ message: "undefined user" });
+    } 
+
+    if (userInfo.dataValues.password !== password) {
+      return res.status(401).send({ message: "Unauthorized" });
+    }
+
+    delete userInfo.dataValues.password;
+    const accessToken = generateAccessToken(userInfo.dataValues);
+
+    return res.status(200).send({ data: { accessToken }, message: 'ok'});
   },
   loginGithub: () => {
     return res.status(200).send('github login');
