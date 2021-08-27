@@ -6,6 +6,7 @@ module.exports = {
       attributes: ['id', 'name']
     });
     return res.status(200).send({ data: {testList}, message:'ok' });
+
   },
   select: async (req, res) => {
     const testParamsId = req.params.id;
