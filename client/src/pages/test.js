@@ -1,37 +1,40 @@
 import React, { useState } from 'react';
-import './test.css'
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
+import './test.css';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
 import Slider from 'react-slick';
 
-
-function Test(){
+function Test() {
   const settings = {
     infinite: false,
     slidesToShow: 3,
-    slidesToScroll: 1
+    slidesToScroll: 1,
   };
 
   const category = [
-      { 'id' : 1, 'name' : '카페', 'img' : '/1starbucks.jpg'},
-      { 'id' : 2, 'name' : '운동', 'img' : '/1dog.png'},
-      { 'id' : 3, 'name' : '동물', 'img' : '/2dog.png'},
-      { 'id' : 4, 'name' : '한식', 'img' : '/3dog.png'},
-      { 'id' : 5, 'name' : '운동', 'img' : '/4dog.png'},
-      { 'id' : 6, 'name' : '동물', 'img' : '/5dog.png'},
-  ]
-  const [current, setCurrent] = useState(0)
+    { id: 1, name: '카페', img: '/1starbucks.jpg' },
+    { id: 2, name: '운동', img: '/1dog.png' },
+    { id: 3, name: '동물', img: '/2dog.png' },
+    { id: 4, name: '한식', img: '/3dog.png' },
+    { id: 5, name: '운동', img: '/4dog.png' },
+    { id: 6, name: '동물', img: '/5dog.png' },
+  ];
+  const [current, setCurrent] = useState(0);
   return (
     <div className='test'>
-    <div className='test_container'>
-      <Slider {...settings}>
+      <div className='test_container'>
+        <Slider {...settings}>
           {category.map((item) => {
-              return (<div className='test_img'><img src={item.img} alt=''/></div>)
-            })}
-      </Slider>
+            return (
+              <div className='test_img'>
+                <img src={item.img} alt='' />
+              </div>
+            );
+          })}
+        </Slider>
+      </div>
     </div>
-    </div>
-);
-};
+  );
+}
 
 export default Test;

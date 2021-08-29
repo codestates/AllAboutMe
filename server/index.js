@@ -27,10 +27,9 @@ app.use(cookieParser());
 // 라우터 연결
 app.use('/', routes);
 
-
 // test
 app.get('/', (req, res) => {
-  res.status(200).send('Welcome to All About Me Page!');
+  res.status(200).send('Welcome to All About Me!');
 })
 
 app.listen(port, () => {

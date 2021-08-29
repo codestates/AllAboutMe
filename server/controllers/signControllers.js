@@ -1,7 +1,8 @@
-const { user } = require('../models')
-const { generateAccessToken } = require('../middleware/jwt')
+const { user } = require('../models');
+const { generateAccessToken } = require('./jwt');
 
 module.exports = {
+  // 로그인
   login: async (req, res) => {
     const { email, password } = req.body;
     const userInfo = await user.findOne({ where: { email } });
@@ -28,6 +29,7 @@ module.exports = {
   logout: (req, res) => {
     return res.status(200).send('logout');
   },
+  // 회원가입
   signup: async (req, res) => {
     if (req.body.email && req.body.password && req.body.name && req.body.phone) {
       // user email check
@@ -35,16 +37,18 @@ module.exports = {
         where: {email : req.body.email}
       });
       if (userEmail) {
-        return res.status(409).send("Conflict")
-      } else {
-        // signUp
-        const signUp = await user.create({
-          name: req.body.name,
-          email: req.body.email,
-          phone: req.body.phone
-        })
-        return res.status(200).send("ok");
+        return res.status(409).send("Email Conflict")
       }
+
+      // signUp
+      const userInfo = await user.create({
+        name: req.body.name,
+        password: req.body.password,
+        email: req.body.email,
+        phone: req.body.phone
+      })
+      return res.status(200).send("sign up complete");
+      
     } else {
       return res.status(422).sned("Unprocessable Ent")
     }
