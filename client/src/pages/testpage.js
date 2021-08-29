@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 import React,{ useState } from 'react';
 import './testpage.css'
 
@@ -23,10 +25,18 @@ function TestPage(){
       { 'id' : 16, 'name' : '카페', 'img' : '/1starbucks.jpg'},
   ]
 
-  const [currentImg, setCurrentImg] = useState(0);
-  const imgHandeler = (index) => {
-    setCurrentImg(index)
+  const tmp = category
+  const tmpLen = tmp.length
+
+  const [currentImg, setCurrentImg] = useState(tmpLen);
+
+  const remain_img = () =>{
+    tmp.shift()
+    tmp.shift()
+    console.log('ㄴㅏ오ㅏ라',tmp)
+    setCurrentImg(tmpLen)
   }
+
 
   //버튼 누르면 누른 버튼의 사진은 그대로 두고,
   //다른 쪽 사진을 바꾼다.
@@ -39,15 +49,15 @@ function TestPage(){
 
   return (
     <div className="testpage_container">
-      <div className="testpage_tournament_score"> 1/32 </div>
+      <div className="testpage_tournament_score"> 1/{tmpLen} </div>
       <div className="testpage_match_name">🥊 예선전</div>
       <div className="testpage_body_wrap">
         <div className="testpage_matchImg_matchBtn_container">
           <div className="testpage_matchImg_box">
-            <img className="testpage_matchImg" src={category[1].img} alt={category.name} />
+            <img className="testpage_matchImg" src={tmp[1].img} alt={category.name} />
           </div>
           <div>
-            <button className="testpage_btn">{category[1].name}</button>
+            <button className="testpage_btn" onClick={()=>remain_img()}>{tmp[1].name}</button>
           </div>
         </div>
         <div className="testpage_match_vs"> 
@@ -55,13 +65,11 @@ function TestPage(){
         </div>
         <div className="testpage_matchImg_matchBtn_container">
           <div className="testpage_matchImg_box">
-            <img className="testpage_matchImg"src={category[2].img} alt={category.name} />
+            <img className="testpage_matchImg"src={tmp[2].img} alt={category.name} />
           </div>
-            <button className="testpage_btn">{category[2].name}</button>
+            <button className="testpage_btn" onClick={()=>remain_img()}>{tmp[2].name}</button>
         </div>
       </div>
-
-      
     </div>
   );
 };
