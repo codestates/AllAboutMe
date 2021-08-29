@@ -21,8 +21,13 @@ module.exports = {
   editUser: async (req, res) => {
     const userId = req.params.id;
     const { email, password, name, phone } = req.body;
+    const userInfo = await user.findOne({ where: { id: userId } });
 
-    const userInfo = await user.update({ email, password, name, phone }, {
+    if (!userInfo) {
+      return res.status(404).send({ message: "undefined user" });
+    }
+
+    const updateInfo = await user.update({ email, password, name, phone }, {
       where: { id: userId }
     });
 
@@ -32,6 +37,12 @@ module.exports = {
   // GET /user/:id/favorite
   favoriteList: async (req, res) => {
     const userId = req.params.id;
+    const userInfo = await user.findOne({ where: { id: userId } });
+
+    if (!userInfo) {
+      return res.status(404).send({ message: "undefined user" });
+    } 
+
     const favoriteList = await favorite.findAll({
       attributes: ['id', 'name'],
       where: { userId }
@@ -40,8 +51,27 @@ module.exports = {
   },
 
   // POST /user/:id/favorite
-  addFavorite: (req, res) => {
-    return res.status(200).send('add user favorite');
+  addFavorite: async (req, res) => {
+    const userId = req.params.id;
+    const userInfo = await user.findOne({ where: { id: userId } });
+
+    if (!userInfo) {
+      return res.status(404).send({ message: "undefined user" });
+    } 
+
+    try {
+      const { name, selectId, testId } = req.body;
+      const item = await favorite.create({
+        userId,
+        name,
+        selectId,
+        testId
+      })
+      return res.status(200).send('add user favorite');
+    } catch (err) {
+      console.log(err);
+      //return res.status().send('')
+    }
   },
 
   // DELETE /user/:id/favorite
