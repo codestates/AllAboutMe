@@ -10,7 +10,7 @@ function SignUp() {
   const [userInfo, setUserInfo] = useState({
     email: '',
     password: '',
-    username: '',
+    name: '',
     phone: '',
   });
   const [message, setMessage] = useState('입력해주세요.');
@@ -19,17 +19,53 @@ function SignUp() {
     setUserInfo({ ...userInfo, [key]: e.target.value });
   };
 
+  function isEmail(asValue) {
+    var regExp =
+      /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/i;
+    return regExp.test(asValue);
+  }
+
+  function isCelluar(asValue) {
+    var regExp = /^01(?:0|1|[6-9])-(?:\d{3}|\d{4})-\d{4}$/;
+    return regExp.test(asValue);
+  }
+
+  function isJobPassword(asValue) {
+    var regExp = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
+    return regExp.test(asValue);
+  }
+
   const handleSignup = () => {
-    const { email, password, username, phone } = userInfo;
-    if (!email || !password || !username || !phone) {
-      setMessage('모든 항목은 필수입니다.');
+    const { email, password, name, phone } = userInfo;
+
+    if (!isEmail(email)) {
+      setMessage('이메일 형식을 맞춰주세요.');
       return;
     }
+
+    if (!isJobPassword(password)) {
+      setMessage(
+        '최소 8자, 하나의 문자, 하나의 숫자가 포함되어야합니다.'
+      );
+      return;
+    }
+
+    if (!isCelluar(phone)) {
+      setMessage('휴대번호(010-####-####)형식을 맞춰주세요.');
+      return;
+    }
+
+    if (!email || !password || !name || !phone) {
+      setMessage('모든 항목은 필수입니다.');
+      return;
+    } 
+
+    setMessage('Join us 버튼을 눌러주세요')
 
     axios
       .post(
         'https://localhost:4000/signup',
-        { email, password, username, phone },
+        { email, password, name, phone },
         {
           headers: { 'Content-Type': 'application/json' },
           withCredentials: true,
@@ -38,34 +74,8 @@ function SignUp() {
       .then((data) => {
         if (data.status === 201) useHistory.push('/Login');
       });
+  
   };
-
-  function isEmail(asValue) {
-    var regExp =
-      /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/i;
-    regExp.test(asValue) === false
-      ? setMessage('이메일 형식을 맞춰주세요.')
-      : setMessage('OK!');
-    //return regExp.test(asValue)
-  }
-
-  function isCelluar(asValue) {
-    var regExp = /^01(?:0|1|[6-9])-(?:\d{3}|\d{4})-\d{4}$/;
-    regExp.test(asValue) === false
-      ? setMessage('휴대번호(010-####-####)형식을 맞춰주세요.')
-      : setMessage('OK!');
-    //return regExp.test(asValue)
-  }
-
-  function isJobPassword(asValue) {
-    var regExp = /^(?=.*\d)(?=.*[a-zA-Z])[0-9a-zA-Z]{8,10}$/;
-    regExp.test(asValue) === false
-      ? setMessage(
-          '최소 8자 이상, 영문 대문자, 영문 소문자, 숫자, 특수문자가 각각 최소 1개 이상이여야 합니다.'
-        )
-      : setMessage('OK!');
-    //return regExp.test(asValue)
-  }
 
   return (
     <div className='signup-container'>
@@ -76,7 +86,7 @@ function SignUp() {
             className='signup-input'
             placeholder='ID (email)'
             type='email'
-            onChange={(handleInputValue('email'), isEmail)}
+            onChange={handleInputValue('email')}
           />
         </div>
         <div>
@@ -84,7 +94,7 @@ function SignUp() {
             className='signup-input'
             placeholder='Password'
             type='password'
-            onChange={(handleInputValue('password'), isJobPassword)}
+            onChange={handleInputValue('password')}
           ></input>
         </div>
         <div>
@@ -102,7 +112,7 @@ function SignUp() {
             type='text'
             name='Phone'
             id='Phone'
-            onChange={(handleInputValue('phone'), isCelluar)}
+            onChange={handleInputValue('phone')}
           ></input>
         </div>
       </form>
@@ -120,9 +130,7 @@ function SignUp() {
       <button
         className='signup-button'
         type='submit'
-        onClick={
-          isEmail || isCelluar || isJobPassword ? handleSignup : !handleSignup
-        }
+        onClick={handleSignup}
       >
         Join us !
       </button>
