@@ -35,11 +35,9 @@
     justify-items: center;
 }
 
-
 .slick-slide img {
   object-fit: cover;
   height: 300px;
   width: 300px;
   box-sizing: border-box;
-
 }

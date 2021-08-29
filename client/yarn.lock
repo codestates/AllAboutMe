@@ -80,10 +80,16 @@
     "jsesc" "^2.5.1"
     "source-map" "^0.5.0"
 
+<<<<<<< HEAD
+"@babel/helper-annotate-as-pure@^7.0.0", "@babel/helper-annotate-as-pure@^7.10.4", "@babel/helper-annotate-as-pure@^7.12.13":
+  "integrity" "sha512-7YXfX5wQ5aYM/BOlbSccHDbuXXFPxeoUmfWtz8le2yTkTZc+BxsiEnENFoi2SlmA8ewDkG2LgIMIVzzn2h8kfw=="
+  "version" "7.12.13"
+=======
 "@babel/helper-annotate-as-pure@^7.0.0", "@babel/helper-annotate-as-pure@^7.14.5":
   "integrity" "sha512-EivH9EgBIb+G8ij1B2jAwSH36WnGvkQSEC6CkX/6v6ZFlw5fVOHvsgGF4uiEHO2GzMvunZb6tDLQEQSdrdocrA=="
   "resolved" "https://registry.npmjs.org/@babel/helper-annotate-as-pure/-/helper-annotate-as-pure-7.14.5.tgz"
   "version" "7.14.5"
+>>>>>>> c07c585fe9ec365889c52649c282f6f172029d95
   dependencies:
     "@babel/types" "^7.14.5"
 
@@ -1164,6 +1170,26 @@
   dependencies:
     "regenerator-runtime" "^0.13.4"
 
+<<<<<<< HEAD
+"@babel/template@^7.10.4", "@babel/template@^7.12.13", "@babel/template@^7.3.3":
+  "integrity" "sha512-/7xxiGA57xMo/P2GVvdEumr8ONhFOhfgq2ihK3h1e6THqzTAkHbkXgB0xI9yeTfIUoH3+oAeHhqm/I43OTbbjA=="
+  "version" "7.12.13"
+  dependencies:
+    "@babel/code-frame" "^7.12.13"
+    "@babel/parser" "^7.12.13"
+    "@babel/types" "^7.12.13"
+
+"@babel/traverse@^7.1.0", "@babel/traverse@^7.12.1", "@babel/traverse@^7.12.13", "@babel/traverse@^7.12.17", "@babel/traverse@^7.4.5", "@babel/traverse@^7.7.0":
+  "integrity" "sha512-LGkTqDqdiwC6Q7fWSwQoas/oyiEYw6Hqjve5KOSykXkmFJFqzvGMb9niaUEag3Rlve492Mkye3gLw9FTv94fdQ=="
+  "version" "7.12.17"
+  dependencies:
+    "@babel/code-frame" "^7.12.13"
+    "@babel/generator" "^7.12.17"
+    "@babel/helper-function-name" "^7.12.13"
+    "@babel/helper-split-export-declaration" "^7.12.13"
+    "@babel/parser" "^7.12.17"
+    "@babel/types" "^7.12.17"
+=======
 "@babel/template@^7.10.4", "@babel/template@^7.14.5", "@babel/template@^7.3.3":
   "integrity" "sha512-6Z3Po85sfxRGachLULUhOmvAaOo7xCvqGQtxINai2mEGPFm6pQ4z5QInFnUrRpfoSV60BnjyF5F3c+15fxFV1g=="
   "resolved" "https://registry.npmjs.org/@babel/template/-/template-7.14.5.tgz"
@@ -1185,6 +1211,7 @@
     "@babel/helper-split-export-declaration" "^7.14.5"
     "@babel/parser" "^7.15.0"
     "@babel/types" "^7.15.0"
+>>>>>>> c07c585fe9ec365889c52649c282f6f172029d95
     "debug" "^4.1.0"
     "globals" "^11.1.0"
 
@@ -1241,10 +1268,16 @@
   "resolved" "https://registry.npmjs.org/@emotion/unitless/-/unitless-0.7.5.tgz"
   "version" "0.7.5"
 
+<<<<<<< HEAD
+"@eslint/eslintrc@^0.3.0":
+  "integrity" "sha512-1JTKgrOKAHVivSvOYw+sJOunkBjUOvjqWk1DPja7ZFhIS2mX/4EgTT8M7eTK9jrKhL/FvXXEbQwIs3pg1xp3dg=="
+  "version" "0.3.0"
+=======
 "@eslint/eslintrc@^0.4.3":
   "integrity" "sha512-J6KFFz5QCYUJq3pf0mjEcCJVERbzv71PUIDczuh9JkwGEzced6CO5ADLHB1rbf/+oPBtoPfMYNOpGDzCANlbXw=="
   "resolved" "https://registry.npmjs.org/@eslint/eslintrc/-/eslintrc-0.4.3.tgz"
   "version" "0.4.3"
+>>>>>>> c07c585fe9ec365889c52649c282f6f172029d95
   dependencies:
     "ajv" "^6.12.4"
     "debug" "^4.1.1"
@@ -2753,6 +2786,8 @@
   "resolved" "https://registry.npmjs.org/babel-plugin-named-asset-import/-/babel-plugin-named-asset-import-0.3.7.tgz"
   "version" "0.3.7"
 
+<<<<<<< HEAD
+=======
 "babel-plugin-polyfill-corejs2@^0.2.2":
   "integrity" "sha512-kISrENsJ0z5dNPq5eRvcctITNHYXWOA4DUZRFYCz3jYCcvTb/A546LIddmoGNMVYg2U38OyFeNosQwI9ENTqIQ=="
   "resolved" "https://registry.npmjs.org/babel-plugin-polyfill-corejs2/-/babel-plugin-polyfill-corejs2-0.2.2.tgz"
@@ -2777,6 +2812,7 @@
   dependencies:
     "@babel/helper-define-polyfill-provider" "^0.2.2"
 
+>>>>>>> c07c585fe9ec365889c52649c282f6f172029d95
 "babel-plugin-styled-components@>= 1.12.0":
   "integrity" "sha512-Vb1R3d4g+MUfPQPVDMCGjm3cDocJEUTR7Xq7QS95JWWeksN1wdFRYpD2kulDgI3Huuaf1CZd+NK4KQmqUFh5dA=="
   "resolved" "https://registry.npmjs.org/babel-plugin-styled-components/-/babel-plugin-styled-components-1.13.2.tgz"
@@ -3924,6 +3960,8 @@
     "domutils" "^1.7.0"
     "nth-check" "^1.0.2"
 
+<<<<<<< HEAD
+=======
 "css-select@^4.1.3":
   "integrity" "sha512-gT3wBNd9Nj49rAbmtFHj1cljIAOLYSX1nZ8CB7TBO3INYckygm5B7LISU/szY//YmdiSLbJvDLOx9VnMVpMBxA=="
   "resolved" "https://registry.npmjs.org/css-select/-/css-select-4.1.3.tgz"
@@ -3935,6 +3973,7 @@
     "domutils" "^2.6.0"
     "nth-check" "^2.0.0"
 
+>>>>>>> c07c585fe9ec365889c52649c282f6f172029d95
 "css-to-react-native@^3.0.0":
   "integrity" "sha512-Ro1yETZA813eoyUp2GDBhG2j+YggidUmzO1/v9eYBKR2EHVEniE2MI/NqpTQ954BMpTPZFsGNPm46qFB9dpaPQ=="
   "resolved" "https://registry.npmjs.org/css-to-react-native/-/css-to-react-native-3.0.0.tgz"
@@ -7052,6 +7091,13 @@
   "resolved" "https://registry.npmjs.org/json-stable-stringify-without-jsonify/-/json-stable-stringify-without-jsonify-1.0.1.tgz"
   "version" "1.0.1"
 
+<<<<<<< HEAD
+"json-stringify-safe@~5.0.1":
+  "integrity" "sha1-Epai1Y/UXxmg9s4B1lcB4sc1tus="
+  "version" "5.0.1"
+
+=======
+>>>>>>> c07c585fe9ec365889c52649c282f6f172029d95
 "json2mq@^0.2.0":
   "integrity" "sha1-tje9O6nqvhIsg+lyBIOusQ0skEo="
   "resolved" "https://registry.npmjs.org/json2mq/-/json2mq-0.2.0.tgz"
@@ -7282,11 +7328,14 @@
   "resolved" "https://registry.npmjs.org/lodash._reinterpolate/-/lodash._reinterpolate-3.0.0.tgz"
   "version" "3.0.0"
 
+<<<<<<< HEAD
+=======
 "lodash.clonedeep@^4.5.0":
   "integrity" "sha1-4j8/nE+Pvd6HJSnBBxhXoIblzO8="
   "resolved" "https://registry.npmjs.org/lodash.clonedeep/-/lodash.clonedeep-4.5.0.tgz"
   "version" "4.5.0"
 
+>>>>>>> c07c585fe9ec365889c52649c282f6f172029d95
 "lodash.debounce@^4.0.8":
   "integrity" "sha1-gteb/zCmfEAF/9XiUVMArZyk168="
   "resolved" "https://registry.npmjs.org/lodash.debounce/-/lodash.debounce-4.0.8.tgz"
@@ -9438,9 +9487,14 @@
   "version" "16.13.1"
 
 "react-is@^17.0.1", "react-is@>= 16.8.0":
+<<<<<<< HEAD
+  "integrity" "sha512-NAnt2iGDXohE5LI7uBnLnqvLQMtzhkiAOLXTmv+qnF9Ky7xAPcX8Up/xWIhxvLVGJvuLiNc4xQLtuqDRzb4fSA=="
+  "version" "17.0.1"
+=======
   "integrity" "sha512-w2GsyukL62IJnlaff/nRegPQR94C/XXamvMWmSHRJ4y7Ts/4ocGRmTHvOs8PSE6pB3dWOrD/nueuU5sduBsQ4w=="
   "resolved" "https://registry.npmjs.org/react-is/-/react-is-17.0.2.tgz"
   "version" "17.0.2"
+>>>>>>> c07c585fe9ec365889c52649c282f6f172029d95
 
 "react-refresh@^0.8.3", "react-refresh@>=0.8.3 <0.10.0":
   "integrity" "sha512-X8jZHc7nCMjaCqoU+V2I0cOhNW+QMBwSUkeXnTi8IPe6zaRWfn60ZzvFDZqWPfmSJfjub7dDW1SP0jaHWLu/hg=="

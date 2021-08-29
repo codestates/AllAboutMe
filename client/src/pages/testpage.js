@@ -21,10 +21,18 @@ function TestPage() {
     { id: 16, name: '카페', img: '/1starbucks.jpg' },
   ];
 
-  const [currentImg, setCurrentImg] = useState(0);
-  const imgHandeler = (index) => {
-    setCurrentImg(index);
-  };
+  const tmp = category
+  const tmpLen = tmp.length
+
+  const [currentImg, setCurrentImg] = useState(tmpLen);
+
+  const remain_img = () =>{
+    tmp.shift()
+    tmp.shift()
+    console.log('ㄴㅏ오ㅏ라',tmp)
+    setCurrentImg(tmpLen)
+  }
+
 
   //버튼 누르면 누른 버튼의 사진은 그대로 두고,
   //다른 쪽 사진을 바꾼다.
