@@ -1,5 +1,5 @@
-const { user } = require('../models')
-const { generateAccessToken } = require('../middleware/jwt')
+const { user } = require('../models');
+const { generateAccessToken } = require('./jwt');
 
 module.exports = {
   login: async (req, res) => {

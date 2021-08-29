@@ -1,6 +1,9 @@
 const express = require('express');
 const router = express.Router();
 const userControllers = require('../controllers/userControllers');
+const { isAuthorized } = require('../middleware/auth')
+
+router.use('/:id', isAuthorized);
 
 router.get('/:id', userControllers.userInfo);
 router.put('/:id', userControllers.editUser);
