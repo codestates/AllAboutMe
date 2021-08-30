@@ -18,7 +18,7 @@ module.exports = {
     delete userInfo.dataValues.password;
     const accessToken = generateAccessToken(userInfo.dataValues);
 
-    return res.status(200).send({ data: { accessToken }, message: 'ok'});
+    return res.status(200).send({ data: { accessToken, id: userInfo.dataValues.id }, message: 'ok'});
   },
   loginGithub: () => {
     return res.status(200).send('github login');

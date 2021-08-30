@@ -69,13 +69,21 @@ module.exports = {
       })
       return res.status(200).send('add user favorite');
     } catch (err) {
-      return res.status().send('')
+      return res.status().send('fail to add favorite')
     }
   },
 
   // DELETE /user/:id/favorite
   deleteFavorite: (req, res) => {
-    return res.status(200).send('delete user favorite')
+    if (!userInfo) {
+      return res.status(404).send({ message: "undefined user" });
+    }
+
+    await favorite.destroy({
+      where: { id: req.body.id }
+    })
+
+    return res.status(200).send('delete user favorite');
   },
 
   // DELETE /user/:id
