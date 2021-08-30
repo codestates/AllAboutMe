@@ -4,7 +4,7 @@ module.exports = {
   // GET /user/:id
   // 사용자 정보 로드
   userInfo: async (req, res) => {
-    const userId = req.params.id;
+    const userId = req.body.authUserId;
     const userInfo = await user.findOne({ where: { id: userId } });
 
     if (!userInfo) {
@@ -19,7 +19,7 @@ module.exports = {
   // PUT /user/:id
   // 사용자 정보 수정
   editUser: async (req, res) => {
-    const userId = req.params.id;
+    const userId = req.body.authUserId;
     const { email, password, name, phone } = req.body;
     const userInfo = await user.findOne({ where: { id: userId } });
 
@@ -36,7 +36,7 @@ module.exports = {
 
   // GET /user/:id/favorite
   favoriteList: async (req, res) => {
-    const userId = req.params.id;
+    const userId = req.body.authUserId;
     const userInfo = await user.findOne({ where: { id: userId } });
 
     if (!userInfo) {
@@ -52,7 +52,7 @@ module.exports = {
 
   // POST /user/:id/favorite
   addFavorite: async (req, res) => {
-    const userId = req.params.id;
+    const userId = req.body.authUserId;
     const userInfo = await user.findOne({ where: { id: userId } });
 
     if (!userInfo) {
@@ -80,7 +80,7 @@ module.exports = {
     }
 
     await favorite.destroy({
-      where: { id: req.body.id }
+      where: { id: req.body.authUserId }
     })
 
     return res.status(200).send('delete user favorite');
@@ -88,7 +88,7 @@ module.exports = {
 
   // DELETE /user/:id
   deleteUser: async (req, res) => {
-    const userId = req.params.id;
+    const userId = req.body.authUserId;
     const userInfo = await user.findOne({ where: { id: userId } });
 
     if (!userInfo) {
