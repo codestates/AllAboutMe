@@ -2,22 +2,25 @@ const { select, test } = require('../models')
 
 module.exports = {
   test: async (req, res) => {
-    const testList = await test.findAll({
-      attributes: ['id', 'name']
-    });
-    return res.status(200).send({ data: {testList}, message:'ok' });
-
+    try {
+      const testList = await test.findAll({
+        attributes: ['id', 'name']
+      });
+      return res.status(200).send({ data: {testList}, message:'ok' });
+    } catch (err) {
+      res.status(404).send({ data: null, message: 'cannot load test' });
+    }
   },
   select: async (req, res) => {
-    const testParamsId = req.params.id;
-
-    const result = await select.findAll({
-      attributes: ['id', 'name', 'image'],
-      where:{testId : testParamsId},
-    })
-    
-    console.log(result)
-    // const { email, password } = req.body;
-    return res.status(200).send({ "data" : {"test" : result}, message: 'ok'});
+    const testId = req.params.id;
+    try {
+      const result = await select.findAll({
+        attributes: ['id', 'name', 'image'],
+        where: { testId },
+      })
+      return res.status(200).send({ data : { test : result }, message: 'ok'});
+    } catch (err) {
+      return res.status(404).send({ data: null, message: 'cannot load test select' })
+    }
   },
 }

@@ -11,12 +11,12 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      test.hasMany(models.favorite, {
-        foreignKey:'testId'
-      })
       test.hasMany(models.select, {
-        foreignKey:'testId'
-      })
+        foreignKey: 'testId'
+      });
+      test.hasMany(models.favorite, {
+        foreignKey: 'testId'
+      });
     }
   };
   test.init({
@@ -24,6 +24,7 @@ module.exports = (sequelize, DataTypes) => {
   }, {
     sequelize,
     modelName: 'test',
+    timestamps: false
   });
   return test;
 };

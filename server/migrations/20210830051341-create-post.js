@@ -14,17 +14,15 @@ module.exports = {
       like: {
         type: Sequelize.INTEGER
       },
-       // * ==========[Associate belongsTo]==========
-      //  userId: {
-      //   type: Sequelize.INTEGER,
-      //   onDelete: 'CASCADE',
-      //   references: {
-      //     model: 'users',
-      //     key: 'id',
-      //     as: 'userId',
-      //   }
-      // },
-      // * ======================
+      userId: {
+        type: Sequelize.INTEGER,
+        field: 'userId',
+        references: {
+          model: 'users',
+          key: 'id'
+        },
+        onDelete: 'cascade'
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE
@@ -33,12 +31,7 @@ module.exports = {
         allowNull: false,
         type: Sequelize.DATE
       }
-    }).then(function(){
-      queryInterface.addColumn('posts','userId',{
-          type: Sequelize.INTEGER,
-          references:{model: 'users', key: 'id'}
-      })
-    })
+    });
   },
   down: async (queryInterface, Sequelize) => {
     await queryInterface.dropTable('posts');

@@ -3,14 +3,14 @@ const router = express.Router();
 const userControllers = require('../controllers/userControllers');
 const { isAuthorized } = require('../middleware/auth')
 
-router.use('/:id', isAuthorized);
+router.use('/', isAuthorized);
 
-router.get('/:id', userControllers.userInfo);
-router.put('/:id', userControllers.editUser);
-router.delete('/:id', userControllers.deleteUser);
+router.get('/info', userControllers.userInfo);
+router.put('/info', userControllers.editUser);
+router.delete('/info', userControllers.deleteUser);
 
-router.get('/:id/favorite', userControllers.favoriteList);
-router.post('/:id/favorite', userControllers.addFavorite);
-router.delete('/:id/favorite', userControllers.deleteFavorite);
+router.get('/favorite', userControllers.favoriteList);
+router.post('/favorite', userControllers.addFavorite);
+router.delete('/favorite', userControllers.deleteFavorite);
 
 module.exports = router;
