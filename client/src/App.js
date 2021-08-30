@@ -12,8 +12,10 @@ import Login from './pages/login';
 import Mypage from './pages/mypage';
 import Test from './pages/test';
 import TestPage from './pages/testpage';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+
+axios.defaults.withCredentials = true;
 
 function App() {
   const user = {
@@ -28,7 +30,7 @@ function App() {
   const [userInfo, setUserInfo] = useState('');
   const [accessToken, setAccessToken] = useState('');
 
-  const isAuthentication = () => {
+  const isAuthenticated = () => {
     axios
       .get(`${serverURL}/user/info`, {
         headers: { Authorization: `bearer ${accessToken}` },
@@ -46,15 +48,22 @@ function App() {
       .catch((err) => console.log(err));
   };
 
-  
   console.log('userInfo : ', userInfo);
+
+  const handleResponseSuccess = () => {
+    isAuthenticated();
+  };
   
   const handleLogout = () => {
-    axios.post(`${serverURL}/signout`).then((res) => {
+    // axios.post(`${serverURL}/logout`).then(() => {
       setUserInfo(null);
       setIsLogin(false);
-    });
+    // });
   };
+
+  useEffect(()=> {
+    isAuthenticated();
+  },[])
   
   return (
     <BrowserRouter>
@@ -70,8 +79,7 @@ function App() {
           {isLogin 
             ? <Redirect to='/mypage' /> 
             : <Login
-            setIsLogin={setIsLogin}
-            isAuthentication={isAuthentication}
+            handleResponseSuccess={handleResponseSuccess}
             setAccessToken={setAccessToken}
             serverURL={serverURL}
           />}

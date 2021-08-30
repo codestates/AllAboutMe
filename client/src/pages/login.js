@@ -5,7 +5,7 @@ import './login.css';
 
 axios.defaults.withCredentials = true;
 
-function Login({ setIsLogin, isAuthentication, setAccessToken, serverURL }) {
+function Login({ handleResponseSuccess, setAccessToken, serverURL }) {
   const [loginInfo, setLoginInfo] = useState({
     email: '',
     password: '',
@@ -57,11 +57,12 @@ function Login({ setIsLogin, isAuthentication, setAccessToken, serverURL }) {
         }
       )
       .then((res) => {
+        console.log('쿠키 찾을래',res)
         if (res.status === 401) setMessage('비밀번호를 확인해주세요.'); //이것도 안됨.
         if (res.status === 404) setMessage('등록되지 않은 회원입니다.');
         if (res.status === 200) {
           setAccessToken(res.data.data.accessToken);
-          isAuthentication();
+          handleResponseSuccess();
           console.log('login OK');
         }
       })
@@ -95,9 +96,6 @@ function Login({ setIsLogin, isAuthentication, setAccessToken, serverURL }) {
           Login
         </button>
       </form>
-      <footer className='login_footer'>
-        <Footer />
-      </footer>
     </div>
   );
 }
