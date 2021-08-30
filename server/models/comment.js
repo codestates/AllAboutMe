@@ -11,7 +11,6 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      // * ==========[Associate belongsTo]==========
       comment.belongsTo(models.post, {
         foreignKey: "postId"
       })
@@ -26,6 +25,5 @@ module.exports = (sequelize, DataTypes) => {
     sequelize,
     modelName: 'comment',
   });
-  
   return comment;
 };

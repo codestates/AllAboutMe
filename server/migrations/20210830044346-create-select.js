@@ -14,22 +14,16 @@ module.exports = {
       image: {
         type: Sequelize.STRING
       },
-      // * ==========[Associate belongsTo]==========
-      // testId: {
-      //   type: Sequelize.INTEGER,
-      //   onDelete: 'CASCADE',
-      //   references: {
-      //     model: 'tests',
-      //     key: 'id',
-      //     as: 'testId',
-      //   }
-      // },
-    }).then(function(){
-      queryInterface.addColumn('selects','testId',{
-          type: Sequelize.INTEGER,
-          references:{model: 'tests', key: 'id'}
-      })
-    })
+      testId: {
+        type: Sequelize.INTEGER,
+        field: 'testId',
+        references: {
+          model: 'tests',
+          key: 'id'
+        },
+        onDelete: 'cascade'
+      }
+    });
   },
   down: async (queryInterface, Sequelize) => {
     await queryInterface.dropTable('selects');
