@@ -4,7 +4,7 @@ module.exports = {
   test: async (req, res) => {
     try {
       const testList = await test.findAll({
-        attributes: ['id', 'name']
+        attributes: ['id', 'name', 'image']
       });
       return res.status(200).send({ data: {testList}, message:'ok' });
     } catch (err) {
