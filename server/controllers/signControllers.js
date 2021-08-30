@@ -23,15 +23,15 @@ module.exports = {
     res.cookie('accessToken', accessToken, {
       maxAge: 1000 * 60 * 60 * 3, // 3h
       httpOnly: true,
-      secure: true,
       // https 사용하면
+      //secure: true,
       // sameSite: none,
     });
     res.cookie('refreshToken', refreshToken, {
       maxAge: 1000 * 60 * 60 * 24, // 1d
       httpOnly: true,
-      secure: true,
       // https 사용하면
+      //secure: true,
       // sameSite: none,
     });
 
