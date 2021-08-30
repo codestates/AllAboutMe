@@ -61,7 +61,7 @@ module.exports = {
 
     try {
       const { name, selectId, testId } = req.body;
-      const item = await favorite.create({
+      await favorite.create({
         userId,
         name,
         selectId,
@@ -69,8 +69,7 @@ module.exports = {
       })
       return res.status(200).send('add user favorite');
     } catch (err) {
-      console.log(err);
-      //return res.status().send('')
+      return res.status().send('')
     }
   },
 
@@ -80,7 +79,17 @@ module.exports = {
   },
 
   // DELETE /user/:id
-  deleteUser: (req, res) => {
+  deleteUser: async (req, res) => {
+    const userId = req.params.id;
+    const userInfo = await user.findOne({ where: { id: userId } });
+
+    if (!userInfo) {
+      return res.status(404).send({ message: "undefined user" });
+    }
+
+    await user.destroy({
+      where: { id: userId }
+    })
     return res.status(200).send('delete user');
   }
 }
