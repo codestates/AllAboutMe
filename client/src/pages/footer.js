@@ -30,10 +30,10 @@ function Footer() {
                 <a href='https://github.com/codestates/AllAboutMe/wiki'>Wiki</a>
               </li>
               <li>
-                <a href=''>Client Repository</a>
+                <a href='https://github.com/codestates/AllAboutMe/wiki'>Client Repository</a>
               </li>
               <li>
-                <a href=''>Server Repository</a>
+                <a href='https://github.com/codestates/AllAboutMe/wiki'>Server Repository</a>
               </li>
             </ul>
           </div>

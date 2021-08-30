@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Footer from './footer';
 import './mypage.css';
 
-function Mypage({ user }) {
+function Mypage({ user, userInfo }) {
   const [currentTab, setCurrentTab] = useState(0);
 
   const menuArr = [
@@ -21,12 +21,12 @@ function Mypage({ user }) {
       <div className='mypage_container'>
         <div className='mypage_userInfo'>
           <div className='userInfo_img'>
-            <img src={user.img} />
+            <img src={user.img} alt=''/>
           </div>
           <divn className='userInfo_detail'>
-            <span>name : {user.name}</span>
-            <span>email : {user.email}</span>
-            <span>phone : {user.phone}</span>
+            <span>name : {userInfo.name}</span>
+            <span>email : {userInfo.email}</span>
+            <span>phone : {userInfo.phone}</span>
           </divn>
         </div>
         <div className='mypage_tabContainer'>
