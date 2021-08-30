@@ -12,7 +12,7 @@ import Login from './pages/login';
 import Mypage from './pages/mypage';
 import Test from './pages/test';
 import TestPage from './pages/testpage';
-import { useState } from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
 
 function App() {
@@ -27,12 +27,10 @@ function App() {
   const [isLogin, setIsLogin] = useState(false);
   const [userInfo, setUserInfo] = useState('');
   const [accessToken, setAccessToken] = useState('');
-  const [userId, setUserId] = useState('');
 
   const isAuthentication = () => {
-
     axios
-      .get(`${serverURL}/user/${userId}`, {
+      .get(`${serverURL}/user/info`, {
         headers: { Authorization: `bearer ${accessToken}` },
       })
       .then((res) => {
@@ -48,19 +46,16 @@ function App() {
       .catch((err) => console.log(err));
   };
 
+  
   console.log('userInfo : ', userInfo);
-
+  
   const handleLogout = () => {
     axios.post(`${serverURL}/signout`).then((res) => {
       setUserInfo(null);
       setIsLogin(false);
     });
   };
-
-  // useEffect(() => {
-  //   isAuthentication();
-  // }, []);
-
+  
   return (
     <BrowserRouter>
       <Nav isLogin={isLogin} handleLogout={handleLogout} />
@@ -78,7 +73,6 @@ function App() {
             setIsLogin={setIsLogin}
             isAuthentication={isAuthentication}
             setAccessToken={setAccessToken}
-            setUserId={setUserId}
             serverURL={serverURL}
           />}
         </Route>

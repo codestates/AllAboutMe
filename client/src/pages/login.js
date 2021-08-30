@@ -5,7 +5,7 @@ import './login.css';
 
 axios.defaults.withCredentials = true;
 
-function Login({ setIsLogin, isAuthentication, setAccessToken, setUserId, serverURL }) {
+function Login({ setIsLogin, isAuthentication, setAccessToken, serverURL }) {
   const [loginInfo, setLoginInfo] = useState({
     email: '',
     password: '',
@@ -57,14 +57,13 @@ function Login({ setIsLogin, isAuthentication, setAccessToken, setUserId, server
         }
       )
       .then((res) => {
+        if (res.status === 401) setMessage('비밀번호를 확인해주세요.'); //이것도 안됨.
+        if (res.status === 404) setMessage('등록되지 않은 회원입니다.');
         if (res.status === 200) {
           setAccessToken(res.data.data.accessToken);
-          setUserId(res.data.data.id);
           isAuthentication();
           console.log('login OK');
         }
-        if (res.status === 401) setMessage('비밀번호를 확인해주세요.');
-        if (res.status === 404) setMessage('등록되지 않은 회원입니다.');
       })
       .catch((err) => console.log(err));
   };
