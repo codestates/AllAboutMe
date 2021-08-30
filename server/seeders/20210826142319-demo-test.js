@@ -5,6 +5,7 @@ module.exports = {
     await queryInterface.bulkInsert('tests', [{
       id: 1,
       name: '한식',
+      image: 'https://pbs.twimg.com/media/EIwDhacUcAIymQF.jpg'
     }]);
   },
 
