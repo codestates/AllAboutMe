@@ -30,7 +30,7 @@ function App() {
   const [userInfo, setUserInfo] = useState('');
   const [accessToken, setAccessToken] = useState('');
 
-  //!setTags DB에서 받아오기, test의 결과가 push될 수 있게 하려면 app.js에 있어야함.
+  //!초기값 DB에서 받아오기, test의 결과가 push될 수 있게 하려면 app.js에 있어야함.
   const initial = ['coding', 'rice'];
   const [favorite, setFavorite] = useState(initial);
 
