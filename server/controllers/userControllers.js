@@ -74,7 +74,7 @@ module.exports = {
   },
 
   // DELETE /user/:id/favorite
-  deleteFavorite: (req, res) => {
+  deleteFavorite: async (req, res) => {
     if (!userInfo) {
       return res.status(404).send({ message: "undefined user" });
     }
