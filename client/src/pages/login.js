@@ -5,7 +5,7 @@ import './login.css';
 
 axios.defaults.withCredentials = true;
 
-function Login() {
+function Login({ setIsLogin, isAuthentication, setAccessToken, setUserId, serverURL }) {
   const [loginInfo, setLoginInfo] = useState({
     email: '',
     password: '',
@@ -17,7 +17,7 @@ function Login() {
 
   function isEmail(asValue) {
     var regExp =
-      /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/i;
+      /^[0-9a-zA-Z]([-_]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/i;
     return regExp.test(asValue);
   }
 
@@ -50,19 +50,25 @@ function Login() {
 
     axios
       .post(
-        'https://localhost:4000/signin',
+        `${serverURL}/login`,
         { email, password },
         {
           headers: { 'Content-Type': 'application/json' },
-          withCredentials: true,
         }
       )
       .then((res) => {
-        if (res.status === 201) console.log('login OK');
-        if (res.status === 401) setMessage('등록되지 않은 회원입니다.');
+        if (res.status === 200) {
+          setAccessToken(res.data.data.accessToken);
+          setUserId(res.data.data.id);
+          isAuthentication();
+          console.log('login OK');
+        }
+        if (res.status === 401) setMessage('비밀번호를 확인해주세요.');
+        if (res.status === 404) setMessage('등록되지 않은 회원입니다.');
       })
       .catch((err) => console.log(err));
   };
+  
   return (
     <div className='login-container'>
       <div className='login-logo'>Login</div>
