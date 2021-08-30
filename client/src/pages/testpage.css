@@ -52,6 +52,14 @@
 
 .testpage_matchImg_matchBtn_container{
     width : 400px;
+    margin-left : 10px;
+    margin-right : 10px;
+    transition: 0.5s;
+}
+
+.testpage_matchImg_matchBtn_container:hover {
+    transform: scale(1.05);
+    opacity:0.5;
 }
 .testpage_btn{
     width: 130px;

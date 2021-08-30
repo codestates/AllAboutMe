@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect} from 'react';
 import './testpage.css';
 
 function TestPage() {
@@ -21,54 +21,71 @@ function TestPage() {
     { id: 16, name: '카페', img: '/1starbucks.jpg' },
   ];
 
-  const tmp = category
-  const tmpLen = tmp.length
-
-  const [currentImg, setCurrentImg] = useState(tmpLen);
-
-  const remain_img = () =>{
-    tmp.shift()
-    tmp.shift()
-    console.log('ㄴㅏ오ㅏ라',tmp)
-    setCurrentImg(tmpLen)
-  }
+    const [imgs, setImgs] = useState([]);
+    const [display, setDisplay] = useState([]);
+    const [winners, setWinners] = useState([]);
+    const [remain, setRemain] = useState(category.length);
+    const [roundName, setRoundName] = useState(['예선전']);
 
 
-  //버튼 누르면 누른 버튼의 사진은 그대로 두고,
-  //다른 쪽 사진을 바꾼다.
-  //배열의 길이가 0이 되면 마지막 남은 사진만 남겨두고
-  //저장을 할수 있게 한다.
-
-  const length = category.length;
+    useEffect(()=>{
+      category.sort(()=> Math.random() - 0.5)
+      setImgs(category)
+      setDisplay([category[0], category[1]])
+      setRemain(category.length)
+    },[]);
+    
+    const clickHandler = img => () => {
+      
+      if (imgs.length <= 2){
+        if (winners.length === 0){
+          setDisplay([img]);
+        }
+        else{
+          let updatedImg = [...winners, img];
+          setImgs(updatedImg);
+          setDisplay([updatedImg[0], updatedImg[1]]);
+          setWinners([]);
+        }
+        
+      }else if(imgs.length > 2){
+        setWinners([...winners, img]);
+        setDisplay([imgs[2], imgs[3]]);
+        setImgs(imgs.slice(2));
+      }
+      setRemain(remain-1)
+      if(remain === 3){
+        setRoundName('결승전')
+      }
+      if(remain === 2){
+        setRoundName('당첨!')
+      }
+      // console.log(winners)
+      // console.log(imgs.length)
+      // console.log('imgs',imgs)
+    }
 
   return (
     <div className='testpage_container'>
-      <div className='testpage_tournament_score'> 1/32 </div>
-      <div className='testpage_match_name'>🥊 예선전</div>
+      <div className='testpage_tournament_score'> 1/{remain}
+      </div>
+      <div className='testpage_match_name'>🥊 {roundName}</div>
       <div className='testpage_body_wrap'>
+        {display.map(el=>{
+          return(
         <div className='testpage_matchImg_matchBtn_container'>
           <div className='testpage_matchImg_box'>
             <img
               className='testpage_matchImg'
-              src={category[1].img}
-              alt={category.name}
+              src={el.img}
+              alt={el.name}
             />
           </div>
           <div>
-            <button className='testpage_btn'>{category[1].name}</button>
+            <button className='testpage_btn' onClick={clickHandler(el)}>{el.name}</button>
           </div>
         </div>
-        <div className='testpage_match_vs'>VS</div>
-        <div className='testpage_matchImg_matchBtn_container'>
-          <div className='testpage_matchImg_box'>
-            <img
-              className='testpage_matchImg'
-              src={category[2].img}
-              alt={category.name}
-            />
-          </div>
-          <button className='testpage_btn'>{category[2].name}</button>
-        </div>
+        )})}
       </div>
     </div>
   );
