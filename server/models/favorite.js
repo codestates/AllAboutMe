@@ -11,16 +11,18 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      // * ==========[Associate belongsTo]==========
-      favorite.belongsTo(models.test, {
-        foreignKey: 'testId'
-      })
       favorite.belongsTo(models.user, {
+        onDelete: 'CASCADE',
         foreignKey: 'userId'
-      })
+      });
+      favorite.belongsTo(models.test, {
+        onDelete: 'CASCADE',
+        foreignKey: 'testId'
+      });
       favorite.belongsTo(models.select, {
+        onDelete: 'CASCADE',
         foreignKey: 'selectId'
-      })      
+      });
     }
   };
   favorite.init({
@@ -29,6 +31,5 @@ module.exports = (sequelize, DataTypes) => {
     sequelize,
     modelName: 'favorite',
   });
-  
   return favorite;
 };
