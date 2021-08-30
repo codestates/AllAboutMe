@@ -66,12 +66,8 @@ export const TagsInput = styled.div`
   }
 `;
 
-function Mypage({ user, userInfo }) {
+function Mypage({ user, userInfo, favorite, setFavorite }) {
   const [currentTab, setCurrentTab] = useState(0);
-  const initial = ['coding', 'rice'];
-  //setTags DB에서 받아오기
-
-  const [favorite, setFavorite] = useState(initial);
 
   const removeTags = (indexToRemove) => {
     setFavorite(favorite.filter((el, index) => index !== indexToRemove))

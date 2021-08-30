@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import Footer from './footer';
 import './login.css';
 
 axios.defaults.withCredentials = true;
@@ -53,12 +52,12 @@ function Login({ handleResponseSuccess, setAccessToken, serverURL }) {
         `${serverURL}/login`,
         { email, password },
         {
-          headers: { 'Content-Type': 'application/json' },
-        }
+          headers: { 'Content-Type': 'application/json' },       
+        },   
       )
       .then((res) => {
         console.log('쿠키 찾을래',res)
-        if (res.status === 401) setMessage('비밀번호를 확인해주세요.'); //이것도 안됨.
+        if (res.status === 401) setMessage('비밀번호를 확인해주세요.'); //이 기능이 안됨.
         if (res.status === 404) setMessage('등록되지 않은 회원입니다.');
         if (res.status === 200) {
           setAccessToken(res.data.data.accessToken);
