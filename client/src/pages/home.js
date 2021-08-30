@@ -45,7 +45,7 @@ function Home() {
           자신이 원하는 것에 대해 선명해지는 시간을 가질 수 있게 도와줍니다.
           <div className='home_container_button'>
             <Link to='/test'>
-              <button type='button' onclick='location.href=signup.js'>
+              <button type='button' onClick='location.href=signup.js'>
                 start
               </button>
             </Link>
@@ -76,7 +76,7 @@ function Home() {
       </div>
       <div className='sa sa-up home_button'>
         <Link to='/test'>
-          <button type='button' onclick='location.href=signup.js'>
+          <button type='button' onClick='location.href=signup.js'>
             start
           </button>
         </Link>
