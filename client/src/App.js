@@ -1,10 +1,5 @@
 import './App.css';
-import {
-  BrowserRouter,
-  Route,
-  Switch,
-  Redirect,
-} from 'react-router-dom';
+import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
 import SignUp from './pages/signup';
 import Nav from './pages/nav.js';
 import Home from './pages/home';
@@ -29,7 +24,7 @@ function App() {
   const [isLogin, setIsLogin] = useState(false);
   const [userInfo, setUserInfo] = useState('');
   const [accessToken, setAccessToken] = useState('');
-  const [categorys, setCategorys] =useState([]);
+  const [categorys, setCategorys] = useState([]);
 
   //!초기값 DB에서 받아오기, test의 결과가 push될 수 있게 하려면 app.js에 있어야함.
   const initial = ['coding', 'rice'];
@@ -41,14 +36,14 @@ function App() {
         headers: { Authorization: `bearer ${accessToken}` },
       })
       .then((res) => {
-        console.log('제발 : ', res.data.data)
-        const {name, email, phone} = res.data.data
+        console.log('제발 : ', res.data.data);
+        const { name, email, phone } = res.data.data;
         setUserInfo({
           name: name,
           email: email,
           phone: phone,
-        })
-        setIsLogin(true)
+        });
+        setIsLogin(true);
       })
       .catch((err) => console.log(err));
   };
@@ -58,23 +53,22 @@ function App() {
   const handleResponseSuccess = () => {
     isAuthenticated();
   };
-  
+
   const handleLogout = () => {
     // axios.post(`${serverURL}/logout`).then(() => {
-      setUserInfo(null);
-      setIsLogin(false);
+    setUserInfo(null);
+    setIsLogin(false);
     // });
   };
 
-  useEffect(()=> {
+  useEffect(() => {
     isAuthenticated();
-  },[])
-  
-  const handleCatagory = (data) => {
-    setCategorys(data)
-  }
+  }, []);
 
-  
+  const handleCatagory = (data) => {
+    setCategorys(data);
+  };
+
   return (
     <BrowserRouter>
       <Nav isLogin={isLogin} handleLogout={handleLogout} />
@@ -86,19 +80,26 @@ function App() {
           <SignUp serverURL={serverURL} />
         </Route>
         <Route exact path='/login'>
-          {isLogin 
-            ? <Redirect to='/mypage' /> 
-            : <Login
-            handleResponseSuccess={handleResponseSuccess}
-            setAccessToken={setAccessToken}
-            serverURL={serverURL}
-          />}
+          {isLogin ? (
+            <Redirect to='/mypage' />
+          ) : (
+            <Login
+              handleResponseSuccess={handleResponseSuccess}
+              setAccessToken={setAccessToken}
+              serverURL={serverURL}
+            />
+          )}
         </Route>
         <Route exact path='/mypage'>
-          <Mypage user={user} userInfo={userInfo} favorite={favorite} setFavorite={setFavorite}/>
+          <Mypage
+            user={user}
+            userInfo={userInfo}
+            favorite={favorite}
+            setFavorite={setFavorite}
+          />
         </Route>
         <Route exact path='/test'>
-          <Test handleCatagory={handleCatagory} categorys={categorys}/>
+          <Test handleCatagory={handleCatagory} categorys={categorys} />
         </Route>
         <Route exact path='/testpage'>
           <TestPage />
