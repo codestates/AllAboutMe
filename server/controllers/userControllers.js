@@ -1,7 +1,7 @@
 const { user, favorite } = require('../models');
 
 module.exports = {
-  // GET /user/:id
+  // GET /user/info
   // 사용자 정보 로드
   userInfo: async (req, res) => {
     const userId = req.body.authUserId;
@@ -16,25 +16,29 @@ module.exports = {
     return res.status(200).send({ data: { id, email, name, phone }, message: 'ok'});
   },
 
-  // PUT /user/:id
+  // PUT /user/info
   // 사용자 정보 수정
   editUser: async (req, res) => {
     const userId = req.body.authUserId;
-    const { email, password, name, phone } = req.body;
     const userInfo = await user.findOne({ where: { id: userId } });
 
     if (!userInfo) {
       return res.status(404).send({ message: "undefined user" });
     }
 
-    const updateInfo = await user.update({ email, password, name, phone }, {
+    const updateInfo = await user.update({ 
+      email: req.body.email, name: req.body.name, phone: req.body.phone 
+    }, {
       where: { id: userId }
     });
 
-    return res.status(200).send({ data: { email, password, name, phone } , message: 'success edit user' });
+    const result = await user.findOne({ where: { id: userId } });
+    const { email, name, phone } = result.dataValues;
+
+    return res.status(200).send({ data: { email, name, phone } , message: 'success edit user' });
   },
 
-  // GET /user/:id/favorite
+  // GET /user/favorite
   favoriteList: async (req, res) => {
     const userId = req.body.authUserId;
     const userInfo = await user.findOne({ where: { id: userId } });
@@ -50,7 +54,7 @@ module.exports = {
     return res.status(200).send({ data: { favoriteList }, messsage: 'user favorite list' });
   },
 
-  // POST /user/:id/favorite
+  // POST /user/favorite
   addFavorite: async (req, res) => {
     const userId = req.body.authUserId;
     const userInfo = await user.findOne({ where: { id: userId } });
@@ -73,7 +77,7 @@ module.exports = {
     }
   },
 
-  // DELETE /user/:id/favorite
+  // DELETE /user/favorite
   deleteFavorite: async (req, res) => {
     if (!userInfo) {
       return res.status(404).send({ message: "undefined user" });
@@ -86,7 +90,7 @@ module.exports = {
     return res.status(200).send('delete user favorite');
   },
 
-  // DELETE /user/:id
+  // DELETE /user/info
   deleteUser: async (req, res) => {
     const userId = req.body.authUserId;
     const userInfo = await user.findOne({ where: { id: userId } });
