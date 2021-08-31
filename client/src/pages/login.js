@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import './login.css';
+import Footer from './footer';
 
 axios.defaults.withCredentials = true;
 
@@ -69,6 +70,7 @@ function Login({ handleResponseSuccess, setAccessToken, serverURL }) {
   };
   
   return (
+    <div className='login'>
     <div className='login-container'>
       <div className='login-logo'>Login</div>
       <form onSubmit={(e) => e.preventDefault()}>
@@ -95,6 +97,10 @@ function Login({ handleResponseSuccess, setAccessToken, serverURL }) {
           Login
         </button>
       </form>
+    <div className='login_footer'>
+      <Footer />
+      </div>
+    </div>
     </div>
   );
 }

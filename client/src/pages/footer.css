@@ -1,21 +1,16 @@
-* {
-    font-family: Georgia, "Times New Roman", serif;
-    margin: 0px;
-    padding: 0px;
-    box-sizing: border-box;
-}
+
 
 .footer {
     background-color: #8EC0E4;
     height: auto;
-    width: 100%;
     padding-top: 40px;
     padding: 20px;
     bottom: 0;
-    right: 0;
-    left: 0;
     display: flex;
     flex-direction: row;
+    display: flex;
+    justify-content: center;
+    max-width: 1200px;
 }
 
 .footer_container{
@@ -77,6 +72,7 @@
 .footer_bottom{
     height: 20px;
     background-color: #8EC0E4;
+    max-width: 1200px;
 }
 .footer_bottom p{
     background-color: #8EC0E4;
