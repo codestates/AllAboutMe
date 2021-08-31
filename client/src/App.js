@@ -29,6 +29,7 @@ function App() {
   const [isLogin, setIsLogin] = useState(false);
   const [userInfo, setUserInfo] = useState('');
   const [accessToken, setAccessToken] = useState('');
+  const [categorys, setCategorys] =useState([]);
 
   //!초기값 DB에서 받아오기, test의 결과가 push될 수 있게 하려면 app.js에 있어야함.
   const initial = ['coding', 'rice'];
@@ -69,6 +70,11 @@ function App() {
     isAuthenticated();
   },[])
   
+  const handleCatagory = (data) => {
+    setCategorys(data)
+  }
+
+  
   return (
     <BrowserRouter>
       <Nav isLogin={isLogin} handleLogout={handleLogout} />
@@ -92,7 +98,7 @@ function App() {
           <Mypage user={user} userInfo={userInfo} favorite={favorite} setFavorite={setFavorite}/>
         </Route>
         <Route exact path='/test'>
-          <Test />
+          <Test handleCatagory={handleCatagory} categorys={categorys}/>
         </Route>
         <Route exact path='/testpage'>
           <TestPage />

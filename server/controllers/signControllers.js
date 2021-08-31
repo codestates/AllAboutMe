@@ -1,5 +1,6 @@
 const { user } = require('../models');
-const { generateAccessToken } = require('./jwt');
+const { use } = require('../routes/user');
+const { generateAccessToken, generateRefreshToken } = require('./jwt');
 
 module.exports = {
   // 로그인
@@ -17,6 +18,22 @@ module.exports = {
 
     delete userInfo.dataValues.password;
     const accessToken = generateAccessToken(userInfo.dataValues);
+    const refreshToken = generateRefreshToken(userInfo.dataValues);
+    
+    res.cookie('accessToken', accessToken, {
+      maxAge: 1000 * 60 * 60 * 3, // 3h
+      httpOnly: true,
+      // https 사용하면
+      //secure: true,
+      // sameSite: none,
+    });
+    res.cookie('refreshToken', refreshToken, {
+      maxAge: 1000 * 60 * 60 * 24, // 1d
+      httpOnly: true,
+      // https 사용하면
+      //secure: true,
+      // sameSite: none,
+    });
 
     return res.status(200).send({ data: { accessToken }, message: 'ok'});
   },
