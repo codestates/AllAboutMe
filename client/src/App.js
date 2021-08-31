@@ -25,6 +25,8 @@ function App() {
   const [userInfo, setUserInfo] = useState('');
   // const [accessToken, setAccessToken] = useState('');
   const [categorys, setCategorys] = useState([]);
+  const [isTestid, setIstestid] = useState(0);
+  const [selectList, setSelectList] = useState([]);
 
   //!초기값 DB에서 받아오기, test의 결과가 push될 수 있게 하려면 app.js에 있어야함.
   const initial = ['coding', 'rice'];
@@ -60,14 +62,22 @@ function App() {
     setUserInfo(null);
     setIsLogin(false);
   };
-
+  
   useEffect(() => {
     isAuthenticated();
   }, []);
 
+  // * ==========[/test]==========
+  // 테스트 리스트 전부 가져오기
   const handleCatagory = (data) => {
     setCategorys(data);
   };
+  // 선택한 test id 가져오기
+  const testId = (id) => {
+    setIstestid(id)
+  }
+  // * ==========[end]==========
+  
 
   return (
     <BrowserRouter>
@@ -98,11 +108,13 @@ function App() {
           />
         </Route>
         <Route exact path='/test'>
-          <Test handleCatagory={handleCatagory} categorys={categorys} />
+          <Test handleCatagory={handleCatagory} categorys={categorys} testId={testId}/>
         </Route>
-        <Route exact path='/testpage'>
-          <TestPage />
+        { isTestid === 0 ? null : 
+        <Route exact path={`/test/${isTestid}`}>
+          <TestPage isTestid={isTestid}/>
         </Route>
+        }
       </Switch>
     </BrowserRouter>
   );

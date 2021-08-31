@@ -72,7 +72,7 @@ function SignUp() {
         }
       )
       .then((data) => {
-        if (data.status === 201) useHistory.push('/Login');
+        if (data.status === 201) useHistory.push('/login');
       });
   
   };
