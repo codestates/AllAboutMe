@@ -23,7 +23,7 @@ function App() {
   const serverURL = `http://ec2-54-180-148-229.ap-northeast-2.compute.amazonaws.com`;
   const [isLogin, setIsLogin] = useState(false);
   const [userInfo, setUserInfo] = useState('');
-  const [accessToken, setAccessToken] = useState('');
+  // const [accessToken, setAccessToken] = useState('');
   const [categorys, setCategorys] = useState([]);
 
   //!초기값 DB에서 받아오기, test의 결과가 push될 수 있게 하려면 app.js에 있어야함.
@@ -31,6 +31,7 @@ function App() {
   const [favorite, setFavorite] = useState(initial);
 
   const isAuthenticated = () => {
+    const accessToken = localStorage.getItem("accessToken");
     axios
       .get(`${serverURL}/user/info`, {
         headers: { Authorization: `bearer ${accessToken}` },
@@ -55,10 +56,9 @@ function App() {
   };
 
   const handleLogout = () => {
-    // axios.post(`${serverURL}/logout`).then(() => {
+    localStorage.removeItem("accessToken");
     setUserInfo(null);
     setIsLogin(false);
-    // });
   };
 
   useEffect(() => {
@@ -85,7 +85,6 @@ function App() {
           ) : (
             <Login
               handleResponseSuccess={handleResponseSuccess}
-              setAccessToken={setAccessToken}
               serverURL={serverURL}
             />
           )}

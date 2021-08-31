@@ -60,7 +60,8 @@ function Login({ handleResponseSuccess, setAccessToken, serverURL }) {
         if (res.status === 401) setMessage('비밀번호를 확인해주세요.'); //이 기능이 안됨.
         if (res.status === 404) setMessage('등록되지 않은 회원입니다.');
         if (res.status === 200) {
-          setAccessToken(res.data.data.accessToken);
+          //setAccessToken(res.data.data.accessToken);
+          localStorage.setItem("accessToken", res.data.data.accessToken);
           handleResponseSuccess();
           console.log('login OK');
         }
