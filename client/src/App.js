@@ -23,7 +23,7 @@ function App() {
   const serverURL = `http://ec2-54-180-148-229.ap-northeast-2.compute.amazonaws.com`;
   const [isLogin, setIsLogin] = useState(false);
   const [userInfo, setUserInfo] = useState('');
-  const [accessToken, setAccessToken] = useState('');
+  // const [accessToken, setAccessToken] = useState('');
   const [categorys, setCategorys] = useState([]);
   const [isTestid, setIstestid] = useState(0);
   const [selectList, setSelectList] = useState([]);
@@ -33,6 +33,7 @@ function App() {
   const [favorite, setFavorite] = useState(initial);
 
   const isAuthenticated = () => {
+    const accessToken = localStorage.getItem("accessToken");
     axios
       .get(`${serverURL}/user/info`, {
         headers: { Authorization: `bearer ${accessToken}` },
@@ -57,10 +58,9 @@ function App() {
   };
 
   const handleLogout = () => {
-    // axios.post(`${serverURL}/logout`).then(() => {
+    localStorage.removeItem("accessToken");
     setUserInfo(null);
     setIsLogin(false);
-    // });
   };
   
   useEffect(() => {
@@ -95,7 +95,6 @@ function App() {
           ) : (
             <Login
               handleResponseSuccess={handleResponseSuccess}
-              setAccessToken={setAccessToken}
               serverURL={serverURL}
             />
           )}

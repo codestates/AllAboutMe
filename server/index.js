@@ -3,6 +3,7 @@ require('dotenv').config();
 const cors = require('cors');
 const cookieParser = require('cookie-parser');
 const express = require('express');
+const session = require('express-session')
 
 const app = express();
 const port = process.env.HTTP_PORT || 80;
@@ -20,6 +21,8 @@ app.use(
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS']
   })
 );
+
+
 app.use(cookieParser());
 
 // TODO: 미들웨어 jwt verify 함수 만들기
