@@ -27,7 +27,7 @@ module.exports = {
     }
 
     const updateInfo = await user.update({ 
-      email: req.body.email, name: req.body.name, phone: req.body.phone 
+      password: req.body.password, name: req.body.name, phone: req.body.phone 
     }, {
       where: { id: userId }
     });
