@@ -63,7 +63,7 @@ function App() {
 
   useEffect(() => {
     isAuthenticated();
-  }, []);
+  },[])
 
   const handleCatagory = (data) => {
     setCategorys(data);
@@ -98,10 +98,10 @@ function App() {
           />
         </Route>
         <Route exact path='/test'>
-          <Test handleCatagory={handleCatagory} categorys={categorys} />
+          <Test handleCatagory={handleCatagory} categorys={categorys} serverURL={serverURL}/>
         </Route>
         <Route exact path='/testpage'>
-          <TestPage />
+          <TestPage serverURL={serverURL}/>
         </Route>
       </Switch>
     </BrowserRouter>

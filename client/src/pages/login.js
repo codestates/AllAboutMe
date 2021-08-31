@@ -56,17 +56,17 @@ function Login({ handleResponseSuccess, setAccessToken, serverURL }) {
         },   
       )
       .then((res) => {
-        console.log('쿠키 찾을래',res)
-        if (res.status === 401) setMessage('비밀번호를 확인해주세요.'); //이 기능이 안됨.
-        if (res.status === 404) setMessage('등록되지 않은 회원입니다.');
         if (res.status === 200) {
-          //setAccessToken(res.data.data.accessToken);
           localStorage.setItem("accessToken", res.data.data.accessToken);
           handleResponseSuccess();
           console.log('login OK');
         }
       })
-      .catch((err) => console.log(err));
+      .catch((err) => {
+        console.log(err.response.status)
+        if (err.response.status === 401) alert('비밀번호를 확인해주세요.'); //이 기능이 안됨.
+        if (err.response.status === 404) alert('등록되지 않은 회원입니다.');
+      });
   };
   
   return (
