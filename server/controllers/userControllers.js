@@ -33,9 +33,9 @@ module.exports = {
     });
 
     const result = await user.findOne({ where: { id: userId } });
-    const { password, name, phone } = result.dataValues;
+    const { email, name, phone } = result.dataValues;
 
-    return res.status(200).send({ data: { password, name, phone } , message: 'success edit user' });
+    return res.status(200).send({ data: { email, name, phone } , message: 'success edit user' });
   },
 
   // GET /user/favorite
