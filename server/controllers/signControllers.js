@@ -30,9 +30,9 @@ module.exports = {
     res.cookie('refreshToken', refreshToken, {
       maxAge: 1000 * 60 * 60 * 24, // 1d
       httpOnly: true,
-      domain: 'http://allaboutmeclient.s3-website.ap-northeast-2.amazonaws.com/'
+      domain: 'http://allaboutmeclient.s3-website.ap-northeast-2.amazonaws.com/',
       // https 사용하면
-      // secure: false,
+      secure: false,
       // sameSite: none,
     });
 
