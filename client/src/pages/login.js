@@ -63,7 +63,6 @@ function Login({ handleResponseSuccess, setAccessToken, serverURL }) {
         }
       })
       .catch((err) => {
-        console.log(err.response.status)
         if (err.response.status === 401) alert('비밀번호를 확인해주세요.'); //이 기능이 안됨.
         if (err.response.status === 404) alert('등록되지 않은 회원입니다.');
       });

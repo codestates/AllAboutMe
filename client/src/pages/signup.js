@@ -72,12 +72,14 @@ function SignUp({ serverURL }) {
         }
       )
       .then((data) => {
-        if (data.status === 200) history.push('/login');
-      })
+        if (data.status === 200) {
+          history.push('/login');
+          alert('회원가입이 완료되었습니다.');
+      }})
       .catch((err) => {
         if(err.response.status === 409) alert('이미 존재하는 이메일입니다.')
       })
-  
+    
   };
 
   return (
