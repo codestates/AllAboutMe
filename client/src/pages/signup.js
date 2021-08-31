@@ -134,9 +134,6 @@ function SignUp() {
       >
         Join us !
       </button>
-      <footer className='signup_footer'>
-        <Footer />
-      </footer>
     </div>
   );
 }
