@@ -60,7 +60,7 @@ function App() {
     setCategorys(data)
   }
 
-  
+
   return (
     <BrowserRouter>
       <Nav isLogin={isLogin} handleLogout={handleLogout} />
@@ -72,20 +72,20 @@ function App() {
           <SignUp serverURL={serverURL} />
         </Route>
         <Route exact path='/login'>
-          {isLogin 
-            ? <Redirect to='/mypage' /> 
+          {isLogin
+            ? <Redirect to='/mypage' />
             : <Login
-            setIsLogin={setIsLogin}
-            isAuthentication={isAuthentication}
-            setAccessToken={setAccessToken}
-            serverURL={serverURL}
-          />}
+              setIsLogin={setIsLogin}
+              isAuthentication={isAuthentication}
+              setAccessToken={setAccessToken}
+              serverURL={serverURL}
+            />}
         </Route>
         <Route exact path='/mypage'>
           <Mypage user={user} userInfo={userInfo} />
         </Route>
         <Route exact path='/test'>
-          <Test handleCatagory={handleCatagory} categorys={categorys}/>
+          <Test handleCatagory={handleCatagory} categorys={categorys} />
         </Route>
         <Route exact path='/testpage'>
           <TestPage />
