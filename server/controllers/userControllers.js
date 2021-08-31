@@ -27,15 +27,15 @@ module.exports = {
     }
 
     const updateInfo = await user.update({ 
-      email: req.body.email, name: req.body.name, phone: req.body.phone 
+      password: req.body.password, name: req.body.name, phone: req.body.phone 
     }, {
       where: { id: userId }
     });
 
     const result = await user.findOne({ where: { id: userId } });
-    const { email, name, phone } = result.dataValues;
+    const { password, name, phone } = result.dataValues;
 
-    return res.status(200).send({ data: { email, name, phone } , message: 'success edit user' });
+    return res.status(200).send({ data: { password, name, phone } , message: 'success edit user' });
   },
 
   // GET /user/favorite
