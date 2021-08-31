@@ -23,7 +23,6 @@ module.exports = {
     res.cookie('accessToken', accessToken, {
       maxAge: 1000 * 60 * 60 * 3, // 3h
       httpOnly: true,
-      domain: '.ap-northeast-2.amazonaws.com',
       // https 사용하면
       secure: false,
       //sameSite: none,
