@@ -12,7 +12,6 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       // define association here
       select.belongsTo(models.test, {
-        onDelete: 'CASCADE',
         foreignKey: 'testId'
       });
       select.hasMany(models.favorite, {

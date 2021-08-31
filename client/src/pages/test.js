@@ -1,11 +1,13 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './test.css';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import Slider from 'react-slick';
 import axios from 'axios';
+import { useHistory, withRouter } from 'react-router-dom';
 
-function Test({ handleCatagory, categorys }) {
+function Test({ handleCatagory, categorys, testId }) {
+  const history = useHistory();
   const settings = {
     infinite: false,
     slidesToShow: 3,
@@ -27,7 +29,6 @@ function Test({ handleCatagory, categorys }) {
       {'Content-Type': 'application/json', 'withCredentials': true}
     )
     .then((data) => {
-      // console.log(data.data.data.testList);
       let testList = data.data.data.testList;
       handleCatagory(testList)
     })
@@ -37,6 +38,12 @@ function Test({ handleCatagory, categorys }) {
     loadTest()
   } 
   
+  function clickImage (value) {
+    let endpoint = value.id
+    testId(endpoint)
+    history.push(`/test/${endpoint}`)
+
+  }
   
   return (
     <div className='test'>
@@ -46,7 +53,7 @@ function Test({ handleCatagory, categorys }) {
             return (
               <div className='test_container'>
                 <div className='test_imgbox'>
-                  <img src={item.image} alt='' />
+                  <img onClick={() => clickImage(item)} src={item.image} alt='' />
                 </div>
                   <a className='test_text'>{item.name}</a>
               </div>
@@ -59,4 +66,4 @@ function Test({ handleCatagory, categorys }) {
   );
 }
 
-export default Test;
+export default withRouter(Test);
