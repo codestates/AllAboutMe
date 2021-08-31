@@ -27,6 +27,7 @@ function App() {
   const [isLogin, setIsLogin] = useState(false);
   const [userInfo, setUserInfo] = useState('');
   const [accessToken, setAccessToken] = useState('');
+  const [categorys, setCategorys] =useState([]);
 
   const isAuthentication = () => {
     axios
@@ -45,7 +46,6 @@ function App() {
       })
       .catch((err) => console.log(err));
   };
-
   
   console.log('userInfo : ', userInfo);
   
@@ -55,6 +55,10 @@ function App() {
       setIsLogin(false);
     });
   };
+
+  const handleCatagory = (data) => {
+    setCategorys(data)
+  }
 
   
   return (
@@ -81,7 +85,7 @@ function App() {
           <Mypage user={user} userInfo={userInfo} />
         </Route>
         <Route exact path='/test'>
-          <Test />
+          <Test handleCatagory={handleCatagory} categorys={categorys}/>
         </Route>
         <Route exact path='/testpage'>
           <TestPage />

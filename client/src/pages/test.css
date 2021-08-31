@@ -35,6 +35,11 @@
     justify-items: center;
 }
 
+.test_text {
+  font-size: 20px;
+  font-family: "NanumMyeongjo";
+}
+
 .slick-slide img {
   object-fit: cover;
   height: 300px;

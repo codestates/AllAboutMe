@@ -5,14 +5,12 @@ import 'slick-carousel/slick/slick-theme.css';
 import Slider from 'react-slick';
 import axios from 'axios';
 
-function Test({ category }) {
+function Test({ handleCatagory, categorys }) {
   const settings = {
     infinite: false,
     slidesToShow: 3,
     slidesToScroll: 1,
-  };
-  
-  
+  };  
 
   // const category = [
   //   { id: 1, name: '카페', img: '/1starbucks.jpg' },
@@ -31,23 +29,30 @@ function Test({ category }) {
     .then((data) => {
       // console.log(data.data.data.testList);
       let testList = data.data.data.testList;
-      console.log(testList)
-      category(testList)
+      handleCatagory(testList)
     })
   }
+
+  if (categorys.length === 0) {
+    loadTest()
+  } 
   
   
   return (
     <div className='test'>
       <div className='test_container'>
         <Slider {...settings}>
-          {category.map((item) => {
+          {categorys.map((item) => {
             return (
-              <div className='test_img'>
-                <img src={item.img} alt='' />
+              <div className='test_container'>
+                <div className='test_imgbox'>
+                  <img src={item.image} alt='' />
+                </div>
+                  <a className='test_text'>{item.name}</a>
               </div>
             );
-          })}
+          })} 
+          
         </Slider>
       </div>
     </div>
