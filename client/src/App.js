@@ -13,6 +13,7 @@ import axios from 'axios';
 axios.defaults.withCredentials = true;
 
 function App() {
+  //!dummydata:사진 떄문에 안 지웠음.
   const user = {
     id: 1,
     img: '/happynewyear.jpg',
@@ -20,26 +21,27 @@ function App() {
     name: '전새복',
     phone: '010-0000-0000',
   };
+
   const serverURL = `http://ec2-54-180-148-229.ap-northeast-2.compute.amazonaws.com`;
   const [isLogin, setIsLogin] = useState(false);
   const [userInfo, setUserInfo] = useState('');
-  // const [accessToken, setAccessToken] = useState('');
   const [categorys, setCategorys] = useState([]);
   const [isTestid, setIstestid] = useState(0);
   const [selectList, setSelectList] = useState([]);
+  const [newUserInfo, setNewUserInfo] = useState('');
 
-  //!초기값 DB에서 받아오기, test의 결과가 push될 수 있게 하려면 app.js에 있어야함.
+  //!favorite : 초기값 DB에서 받아오기, test의 결과가 push될 수 있게 하려면 app.js에 있어야함.
   const initial = ['coding', 'rice'];
   const [favorite, setFavorite] = useState(initial);
 
+  //!로그인 시, 회원정보 업데이트
   const isAuthenticated = () => {
-    const accessToken = localStorage.getItem("accessToken");
+    const accessToken = localStorage.getItem('accessToken');
     axios
       .get(`${serverURL}/user/info`, {
         headers: { Authorization: `bearer ${accessToken}` },
       })
       .then((res) => {
-        console.log('제발 : ', res.data.data);
         const { name, email, phone } = res.data.data;
         setUserInfo({
           name: name,
@@ -51,18 +53,17 @@ function App() {
       .catch((err) => console.log(err));
   };
 
-  console.log('userInfo : ', userInfo);
-
   const handleResponseSuccess = () => {
     isAuthenticated();
   };
 
+  //!로그아웃 함수
   const handleLogout = () => {
-    localStorage.removeItem("accessToken");
-    setUserInfo(null);
     setIsLogin(false);
+    localStorage.removeItem('accessToken');
+    setUserInfo(null);
   };
-  
+
   useEffect(() => {
     isAuthenticated();
   }, []);
@@ -74,10 +75,9 @@ function App() {
   };
   // 선택한 test id 가져오기
   const testId = (id) => {
-    setIstestid(id)
-  }
+    setIstestid(id);
+  };
   // * ==========[end]==========
-  
 
   return (
     <BrowserRouter>
@@ -100,21 +100,32 @@ function App() {
           )}
         </Route>
         <Route exact path='/mypage'>
-          <Mypage
+          {!isLogin ? (
+            <Redirect to='/' />
+          ) : (<Mypage
             user={user}
             userInfo={userInfo}
             favorite={favorite}
             setFavorite={setFavorite}
-          />
+            newUserInfo={newUserInfo}
+            setNewUserInfo={setNewUserInfo}
+            serverURL={serverURL}
+            handleLogout={handleLogout}
+            setUserInfo={setUserInfo}
+          />)}
         </Route>
         <Route exact path='/test'>
-          <Test handleCatagory={handleCatagory} categorys={categorys} testId={testId}/>
+          <Test
+            handleCatagory={handleCatagory}
+            categorys={categorys}
+            testId={testId}
+          />
         </Route>
-        { isTestid === 0 ? null : 
-        <Route exact path={`/test/${isTestid}`}>
-          <TestPage isTestid={isTestid}/>
-        </Route>
-        }
+        {isTestid === 0 ? null : (
+          <Route exact path={`/test/${isTestid}`}>
+            <TestPage isTestid={isTestid} />
+          </Route>
+        )}
       </Switch>
     </BrowserRouter>
   );

@@ -1,12 +1,11 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import axios from 'axios';
-import Footer from './footer';
 import './signup.css';
 
 axios.defaults.withCredentials = true;
 
-function SignUp() {
+function SignUp({ serverURL }) {
   const [userInfo, setUserInfo] = useState({
     email: '',
     password: '',
@@ -14,6 +13,7 @@ function SignUp() {
     phone: '',
   });
   const [message, setMessage] = useState('입력해주세요.');
+  const history = useHistory();
 
   const handleInputValue = (key) => (e) => {
     setUserInfo({ ...userInfo, [key]: e.target.value });
@@ -64,7 +64,7 @@ function SignUp() {
 
     axios
       .post(
-        'https://localhost:4000/signup',
+        `${serverURL}/signup`,
         { email, password, name, phone },
         {
           headers: { 'Content-Type': 'application/json' },
@@ -72,9 +72,14 @@ function SignUp() {
         }
       )
       .then((data) => {
-        if (data.status === 201) useHistory.push('/login');
-      });
-  
+        if (data.status === 200) {
+          history.push('/login');
+          alert('회원가입이 완료되었습니다.');
+      }})
+      .catch((err) => {
+        if(err.response.status === 409) alert('이미 존재하는 이메일입니다.')
+      })
+    
   };
 
   return (
