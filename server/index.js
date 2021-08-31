@@ -22,19 +22,6 @@ app.use(
   })
 );
 
-app.use(session({
-  httpOnly: true,
-  secure: false, // https 환경에서만 session 정보를 주고받도록 처리
-  secret: '', // 암호화하는 데 쓰일 키
-  resave: false, // 세션을 언제나 저장할지 설정함
-  saveUninitialized: true, // 세션이 저장되기 전 uninitialized 상태로 미리 만들어 저장
-  cookie: { // 세션 쿠키 설정 (클라이언트에 보내는 쿠키 설정)
-    httpOnly: true,
-    secure: false
-  },
-
-}))
-
 
 app.use(cookieParser());
 
