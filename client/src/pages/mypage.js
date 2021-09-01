@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { useHistory } from 'react-router-dom';
 import './mypage.css';
 import styled from 'styled-components';
 import axios from 'axios';
@@ -163,7 +162,6 @@ function Mypage({
 }) {
   const [currentTab, setCurrentTab] = useState(0);
   const menuArr = ['My Favorites', 'Modifying', 'Delete Account'];
-  const history = useHistory();
 
   //!tag 삭제하는 함수
   const removeTags = (indexToRemove) => {

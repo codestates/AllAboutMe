@@ -1,7 +1,22 @@
+@font-face{
+    font-family: "roman";
+    src: url("../font/timesnewroman.ttf")
+}
+
+@font-face{
+    font-family: "NanumMyeongjo";
+    src: url("../font/NanumMyeongjo.ttf")
+}
+
 .testpage_container {
-    width: 100%;
-    height: 100%;
-    margin-top: 150px;
+    display: flex;
+    justify-content: flex-start;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1200px;
+    height: 1200px;
+    background-color: rgb(249, 240, 227);
+    flex-direction: column;
 }
 
 .testpage_matchImg_box{
@@ -9,18 +24,20 @@
     border-radius: 25px;
     overflow: hidden; 
 }
-/* 
+
 .testpage_matchImg{
-    width: 100%;
-    height: 100%;
-    object-fit: cover;  
-} */
+    width: 400px;
+    height: 350px;
+    object-fit: cover;
+    border-radius: 30px;
+}
 
 .testpage_tournament_score{
     font-size : 30px;
     font-weight: 1000;
-    font-family: 'Times New Roman', Times, serif;
+    font-family:'NanumMyeongjo';
     text-align: center;
+    margin-top: 100px;
 }
 
 .testpage_match_name{
@@ -42,7 +59,7 @@
 
 .testpage_match_vs{
     font-size : 30px;
-    font-family :'Times New Roman', Times, serif;;
+    font-family : 'NanumMyeongjo';
     font-weight: 1000;
     padding-bottom: 60px;
     width: 100px;
@@ -62,18 +79,23 @@
     opacity:0.5;
 }
 .testpage_btn{
-    width: 130px;
+    width: 200px;
     height: 50px;
     margin-top : 20px;
     border-radius: 25px;
     border: solid #8EC0E4;
     background-color:rgba(255, 255, 255, 0);
     color: #8EC0E4;
-    font-size: 20px;
+    font-size: 17px;
+    font-weight: 900;
     font-family: Georgia, "Times New Roman", serif;
     display : table;
     margin-left: auto;
     margin-right: auto;
+}
+.testpage_footer {
+    position: fixed;
+    bottom: 0;
 }
 /* 
 .test_container{
@@ -130,3 +152,31 @@
     transition-duration: 1s;
     transform: scale(0.92);
 } */
+
+@media screen and (max-width: 850px){
+    .testpage_matchImg{
+        width: 300px;
+        height: 250px;
+    }
+    .testpage_matchImg_matchBtn_container{
+        width: 300px;
+        height: 250px;
+    }
+    .testpage_tournament_score{
+        margin-top: 140px;
+    }
+}
+
+@media screen and (max-width: 650px){
+    .testpage_matchImg{
+        width: 200px;
+        height: 150px;
+    }
+    .testpage_matchImg_matchBtn_container{
+        width: 200px;
+        height: 150px;
+    }
+    .testpage_tournament_score{
+        margin-top: 160px;
+    }
+}
