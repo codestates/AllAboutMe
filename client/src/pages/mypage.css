@@ -63,13 +63,14 @@
 
 .mypage_tabContainer{
     display: flex;
+    width: 100%;
     justify-content: center;
     align-items: center;
     flex-direction: column;
 }
 
 .mypaga_tabMenu{
-    width: 700px;
+    width: 80%;
     display: flex;
     flex-direction: row;
     align-items: center;

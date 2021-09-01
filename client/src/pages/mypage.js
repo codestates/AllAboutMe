@@ -12,7 +12,8 @@ export const TagsInput = styled.div`
   align-items: flex-start;
   flex-wrap: wrap;
   min-height: 48px;
-  width: 700px;
+  width:100%;
+  margin:auto;
   padding: 0 8px;
   border: 1px solid rgb(214, 216, 218);
   border-radius: 6px;
@@ -78,10 +79,11 @@ export const TagsInput = styled.div`
 export const ModifyInput = styled.div`
   display: flex;
   flex-direction: column;
-  width: 700px;
+  width: 80%;
   justify-content: center;
   align-items: center;
   text-align: center;
+  margin: auto;
   border: 1px solid rgb(214, 216, 218);
   border-radius: 6px;
 
@@ -117,10 +119,11 @@ export const ModifyInput = styled.div`
 export const DeleteUser = styled.div`
   display: flex;
   flex-direction: column;
-  width: 700px;
+  width: 80%;
   justify-content: center;
   align-items: center;
   text-align: center;
+  margin: auto;
   border: 1px solid rgb(214, 216, 218);
   border-radius: 6px;
   padding: 10px;
