@@ -64,11 +64,11 @@ module.exports = {
     } 
 
     try {
-      const { name, selectId, testId } = req.body;
+      const { name, id, testId } = req.body;
       await favorite.create({
         userId,
         name,
-        selectId,
+        selectId: id,
         testId
       })
       return res.status(200).send('add user favorite');
@@ -84,7 +84,7 @@ module.exports = {
     }
 
     await favorite.destroy({
-      where: { id: req.body.authUserId }
+      where: { id: req.body.id }
     })
 
     return res.status(200).send('delete user favorite');

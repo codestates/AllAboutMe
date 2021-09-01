@@ -34,19 +34,20 @@
 }
 
 .testpage_tournament_score{
-    font-size : 30px;
+    font-size : 25px;
     font-weight: 1000;
     font-family:'NanumMyeongjo';
     text-align: center;
     margin-top: 100px;
+    font-weight: 900;
 }
 
 .testpage_match_name{
-    font-size : 30px;
+    font-size : 45px;
     font-weight: 1000;
     font-family :'NanumMyeongjo';
     text-align : center;
-    margin-top: 30px;
+    margin-top: 5px;
     margin-bottom: 50px;
 }
 .testpage_body_wrap{
@@ -84,9 +85,9 @@
     height: 50px;
     margin-top : 20px;
     border-radius: 25px;
-    border: solid #8EC0E4;
-    background-color:rgba(255, 255, 255, 0);
-    color: #8EC0E4;
+    border: solid 0px;
+    background-color:#8EC0E4;
+    color:white;
     font-size: 17px;
     font-weight: 900;
     font-family: Georgia, "Times New Roman", serif;
