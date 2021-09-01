@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useState, useEffect } from 'react';
 import './testpage.css';
+import Footer from './footer';
 
 
 function TestPage({ selectList }) {
@@ -78,7 +79,10 @@ function TestPage({ selectList }) {
           )
         })}
       </div>
-    </div>
+      <div className='testpage_footer'>
+      <Footer />
+      </div>
+      </div>
   );
 }
 

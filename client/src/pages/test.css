@@ -1,11 +1,17 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
 .test{
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   margin-left: auto;
   margin-right: auto;
   max-width: 1200px;
   height: 1200px;
   background-color: rgb(249, 240, 227);
+  justify-content: center;
 }
 
 .test_container {
@@ -15,8 +21,14 @@
   border: solid 0px;
   border-radius: 10px;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
+  text-align: center;
+  transition: 1;
+}
+
+.test_container:hover{
+  opacity: 0.8;
 }
 
 .slick-slide {
@@ -29,14 +41,20 @@
     display: flex;
     float: left;
     display: flex;
+    margin-bottom: 10px;
     justify-content: center;
     align-items: center;
     justify-items: center;
+    transition: 1;
 }
+
 
 .test_text {
   font-size: 20px;
   font-family: "NanumMyeongjo";
+  font-weight: 700;
+  background-color:  #8ec0e4;
+  color:rgb(249, 240, 227);
 }
 
 .slick-slide img {
@@ -44,4 +62,24 @@
   height: 300px;
   width: 300px;
   box-sizing: border-box;
+  border-radius: 20px;
+  margin-bottom: 20px;
+}
+
+.test_footer{
+  position: fixed;
+  bottom: 0;
+  max-width: 1200px;
+}
+
+@media screen and (max-width: 960px){
+  .test_container {
+    width: 700px;
+  }
+}
+
+@media screen and (max-width: 850px){
+  .test_container {
+    width: 400px;
+  }
 }

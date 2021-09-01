@@ -1,19 +1,25 @@
 import React, { useState } from 'react';
-import { useHistory } from 'react-router-dom';
 import './mypage.css';
 import styled from 'styled-components';
 import axios from 'axios';
 
 //!styled in js
+
+
 export const TagsInput = styled.div`
   display: flex;
   align-items: flex-start;
   flex-wrap: wrap;
   min-height: 48px;
-  width: 700px;
+  width:100%;
+  margin:auto;
   padding: 0 8px;
   border: 1px solid rgb(214, 216, 218);
   border-radius: 6px;
+
+  @media only screen and (max-width: 850px) {
+    width: 450px
+  }
 
   > ul {
     display: flex;
@@ -72,12 +78,18 @@ export const TagsInput = styled.div`
 export const ModifyInput = styled.div`
   display: flex;
   flex-direction: column;
-  width: 700px;
+  width: 80%;
   justify-content: center;
   align-items: center;
   text-align: center;
+  margin: auto;
   border: 1px solid rgb(214, 216, 218);
   border-radius: 6px;
+
+  @media only screen and (max-width: 850px) {
+    width: 450px
+  }
+
   > input {
     text-decoration: none;
     border: solid 0px;
@@ -106,13 +118,19 @@ export const ModifyInput = styled.div`
 export const DeleteUser = styled.div`
   display: flex;
   flex-direction: column;
-  width: 700px;
+  width: 80%;
   justify-content: center;
   align-items: center;
   text-align: center;
+  margin: auto;
   border: 1px solid rgb(214, 216, 218);
   border-radius: 6px;
   padding: 10px;
+
+  @media only screen and (max-width: 850px) {
+    width: 450px
+  }
+  
   > div {
     font-family: 'Times New Roman', Times, serif;
     margin-top: 10px;
@@ -144,7 +162,6 @@ function Mypage({
 }) {
   const [currentTab, setCurrentTab] = useState(0);
   const menuArr = ['My Favorites', 'Modifying', 'Delete Account'];
-  const history = useHistory();
 
   //!tag 삭제하는 함수
   const removeTags = (indexToRemove) => {
