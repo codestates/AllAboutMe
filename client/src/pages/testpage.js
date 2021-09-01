@@ -8,7 +8,7 @@ function TestPage({ selectList }) {
   // const [remain, setRemain] = useState(0);
   // const [roundName, setRoundName] = useState(['예선전']);
   const [category, setCategory] = useState(selectList);
-  const [remain, setRemain] = useState(category.length - 1);
+  const [remain, setRemain] = useState(category.length);
   const [roundName, setRoundName] = useState(['예선전']);
   const [selectCnt, setSelectCnt] = useState(0);
   const [round, setRound] = useState(1); 
@@ -22,7 +22,7 @@ function TestPage({ selectList }) {
   }, []);
 
   useEffect(() => {
-    if (round > remain) {
+    if (round >= remain) {
 
       setDisplay(select);
     } else if (selectCnt === category.length) {
@@ -37,16 +37,19 @@ function TestPage({ selectList }) {
   }, [select])
 
   const handleRoundName = () => {
-    if (selectList.length - 1 === round) {
+    if (selectList.length - 2 === round) {
       setRoundName('결승전')
-    } else if (selectList.length - 3 === round) {
+    } else if (selectList.length - 5 === round) {
       setRoundName('4강전')
-    } else if (remain - 7 === round) {
+    } else if (remain - 9 === round) {
       setRoundName('8강전');
     }
   }
 
   const clickEvent = (data) => {
+    if (selectList.length - 1 === round && select.length === 1) {
+      console.log('1등')
+    }
     setRound(round + 1);
     handleRoundName();
     setSelect([...select, data]);
