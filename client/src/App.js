@@ -16,7 +16,7 @@ function App() {
   //!dummydata:사진 떄문에 안 지웠음.
   const user = {
     id: 1,
-    img: '/happynewyear.jpg',
+    img: '/proimg.jpeg',
     email: 'happynewyear@gmail.com',
     name: '전새복',
     phone: '010-0000-0000',
@@ -29,8 +29,8 @@ function App() {
   const [selectList, setSelectList] = useState([]);
   const [newUserInfo, setNewUserInfo] = useState('');
 
-  //!favorite : 초기값 DB에서 받아오기, test의 결과가 push될 수 있게 하려면 app.js에 있어야함.
-  const [favorite, setFavorite] = useState('');
+  //!favorite
+  const [favorite, setFavorite] = useState([]);
 
   //!로그인 시, 회원정보 업데이트
   const isAuthenticated = () => {

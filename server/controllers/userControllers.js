@@ -79,6 +79,8 @@ module.exports = {
 
   // DELETE /user/favorite
   deleteFavorite: async (req, res) => {
+    const userId = req.body.authUserId;
+    const userInfo = await user.findOne({ where: { id: userId } });
     if (!userInfo) {
       return res.status(404).send({ message: "undefined user" });
     }
@@ -99,6 +101,9 @@ module.exports = {
       return res.status(404).send({ message: "undefined user" });
     }
 
+    await favorite.destroy({
+      where: { userId }
+    });
     await user.destroy({
       where: { id: userId }
     })
