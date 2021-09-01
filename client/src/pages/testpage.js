@@ -26,7 +26,6 @@ function TestPage({ selectList, setFavorite, favorite, serverURL, isLogin }) {
 
   useEffect(() => {
     if (round >= remain) {
-
       setDisplay(select);
     } else if (selectCnt === category.length) {
       setCategory(select);
@@ -40,15 +39,15 @@ function TestPage({ selectList, setFavorite, favorite, serverURL, isLogin }) {
   }, [select])
 
   const handleRoundName = () => {
-    if(remain-1 === round){
-      setRoundName('우승')
-    } else if (selectList.length - 1 === round) {
-      setRoundName('결승전')
-    } else if (selectList.length - 3 === round) {
-      setRoundName('4강전')
-    } else if (remain - 7 === round) {
+    if (remain - 1  === round) {
+      setRoundName('우승');
+    } else if (selectList.length - 2 === round) {
+      setRoundName('결승전');
+    } else if (selectList.length - 5 === round) {
+      setRoundName('4강전');
+    } else if (remain - 9 === round) {
       setRoundName('8강전');
-    }
+    } 
   }
 
   const clickEvent = (data) => {
@@ -87,7 +86,7 @@ function TestPage({ selectList, setFavorite, favorite, serverURL, isLogin }) {
       <div className='testpage_body_wrap'>
         {display.map(el => {
           return (
-            <div key={el.id} className='testpage_matchImg_matchBtn_container'>
+            <div key={el.id} className='testpage_matchImg_matchBtn_container' onClick={() => clickEvent(el)}>
               <div className='testpage_matchImg_box'>
                 <img
                   className='testpage_matchImg'
@@ -96,7 +95,7 @@ function TestPage({ selectList, setFavorite, favorite, serverURL, isLogin }) {
                 />
               </div>
               <div>
-                <button className='testpage_btn' onClick={() => clickEvent(el)}>{el.name}</button>
+                <button className='testpage_btn' >{el.name}</button>
               </div>
             </div>
           )
