@@ -21,7 +21,6 @@ function App() {
     name: '전새복',
     phone: '010-0000-0000',
   };
-
   const serverURL = `http://ec2-54-180-148-229.ap-northeast-2.compute.amazonaws.com`;
   const [isLogin, setIsLogin] = useState(false);
   const [userInfo, setUserInfo] = useState('');
@@ -80,8 +79,9 @@ function App() {
 
   const selects = (list) => {
     setSelectList(list);
+    
   }
-  console.log(selectList)
+  
   // * ==========[end]==========
 
   return (

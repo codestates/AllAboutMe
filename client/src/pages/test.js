@@ -4,7 +4,7 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import Slider from 'react-slick';
 import axios from 'axios';
-import { useHistory, withRouter } from 'react-router-dom';
+import { withRouter, useHistory } from 'react-router-dom';
 
 function Test({ handleCatagory, categorys, testId, selects, serverURL}) {
   const history = useHistory();
@@ -23,38 +23,42 @@ function Test({ handleCatagory, categorys, testId, selects, serverURL}) {
   //   { id: 6, name: '동물', img: '/5dog.png' },
   // ];
 
-  function loadTest () {
+  function loadTest() {
     axios.get(
       `${serverURL}/test`,
-      {'Content-Type': 'application/json', 'withCredentials': true}
+      { 'Content-Type': 'application/json', 'withCredentials': true }
     )
-    .then((data) => {
-      let testList = data.data.data.testList;
-      handleCatagory(testList)
-    })
+      .then((data) => {
+        let testList = data.data.data.testList;
+        handleCatagory(testList)
+      })
   }
 
   if (categorys.length === 0) {
     loadTest()
-  } 
+  }
 
-  function selectList (testId) {
+  function selectList(testId) {
     axios.get(
-      `http://localhost:4000/test/${testId}`,
+      `${serverURL}/test/${testId}`,
       { 'Content-Type': 'application/json', 'withCredentials': true }
     )
       .then((data) => {
-        let test = data.data.data.test;
+        let test = data.data.data.test.sort(() => Math.random() - 0.5);
         selects(test);
       })
   }
-  
-  function clickImage (value) {
-    let endpoint = value.id
-    testId(endpoint)
-    selectList(endpoint)
-    history.push(`/test/${endpoint}`)
 
+  function delay(ms) {
+    return new Promise (resolve => setTimeout(resolve, ms));
+  }
+
+  async function clickImage(value) {
+    let endpoint = value.id
+    await testId(endpoint)
+    await selectList(endpoint)
+    await delay(200)
+    history.push(`/test/${endpoint}`)
   }
   
   return (
@@ -63,7 +67,7 @@ function Test({ handleCatagory, categorys, testId, selects, serverURL}) {
         <Slider {...settings}>
           {categorys.map((item) => {
             return (
-              <div className='test_container'>
+              <div key={item.id} className='test_container'>
                 <div className='test_imgbox'>
                   <img onClick={() => clickImage(item)} src={item.image} alt='' />
                 </div>
