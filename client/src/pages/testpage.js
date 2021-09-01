@@ -18,39 +18,45 @@ function TestPage({ selectList }) {
   useEffect(() => {
     category.sort(() => Math.random() - 0.5);
     setCategory(category);
-    // setDisplay([category[selectCnt], category[selectCnt + 1]]);
+    setDisplay([category[selectCnt], category[selectCnt + 1]]);
   }, []);
 
-  const handleRoundName = () => {
-    // if (remain - 1 === round) {
-    //   setRoundName('결승전')
-    // } else if (remain - 3) {
+  useEffect(() => {
+    if (round > remain) {
 
-    // }
+      setDisplay(select);
+    } else if (selectCnt === category.length) {
+      setCategory(select);
+      setSelectCnt(0);
+      setSelect([]);
+    } else {
+      setSelectCnt(selectCnt + 2);
+      setDisplay([category[selectCnt], category[selectCnt + 1]])
+    }
+    console.log(select, round, remain);
+  }, [select])
+
+  const handleRoundName = () => {
+    if (selectList.length - 1 === round) {
+      setRoundName('결승전')
+    } else if (selectList.length - 3 === round) {
+      setRoundName('4강전')
+    } else if (remain - 7 === round) {
+      setRoundName('8강전');
+    }
   }
 
   const clickEvent = (data) => {
-    // setRound(round + 1);
-    // setSelect([...select, data]);
-
-    // if (selectCnt === category.length) {
-    //   setCategory(select);
-    //   setSelectCnt(0);
-    //   setSelect([]);
-    // } else {
-    //   setSelectCnt(selectCnt + 2);
-    //   setDisplay([category[selectCnt], category[selectCnt + 1]])
-    // }
+    setRound(round + 1);
+    handleRoundName();
+    setSelect([...select, data]);
   }
-
-
-  
 
   return (
     <div className='testpage_container'>
       <div className='testpage_tournament_score'> {round}/{remain}
       </div>     
-      <div className='testpage_match_name'>🥊 {}</div>
+      <div className='testpage_match_name'>🥊 {roundName}</div>
       <div className='testpage_body_wrap'>
         {display.map(el => {
           return (
