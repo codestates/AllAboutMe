@@ -16,8 +16,8 @@
 
 .test_container {
   width: 1000px;
-  height: 400px;
-  margin-top: 50px;
+  height: 300px;
+  margin-top: 60px;
   border: solid 0px;
   border-radius: 10px;
   display: flex;
@@ -59,7 +59,7 @@
 
 .slick-slide img {
   object-fit: cover;
-  height: 300px;
+  height: 200px;
   width: 300px;
   box-sizing: border-box;
   border-radius: 20px;
