@@ -26,3 +26,19 @@ All About Me는 바로 이런 사람들을 위해 자신이 어떤 것을 좋아
 | 김태일 | BE |
 | 전시윤 | FE |
 | 장수완 | FE |
+
+## Skills
+#### Frond End
+- JavaScript, HTML, CSS 
+- React, React-Hook, React-Router, 
+- AXIOS
+
+#### Back End
+- NodeJS
+- Express
+- MySQL, Sequelize, PM2
+- AXIOS
+
+#### DevOps
+- AWS ECS, S3, RDS, Codepipeline, CodeDeploy
+
