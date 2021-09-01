@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './mypage.css';
 import styled from 'styled-components';
 import axios from 'axios';
@@ -160,9 +160,14 @@ function Mypage({
   serverURL,
   handleLogout,
   setUserInfo,
+  getFavorite
 }) {
   const [currentTab, setCurrentTab] = useState(0);
   const menuArr = ['My Favorites', 'Modifying', 'Delete Account'];
+
+  useEffect(() => {
+    getFavorite();
+  }, [])
 
   //!tag 삭제하는 함수
   const removeTags = (indexToRemove) => {
@@ -172,6 +177,7 @@ function Mypage({
    
     setFavorite(favorite.filter((el, index) => index !== indexToRemove));
     const accessToken = localStorage.getItem('accessToken');
+    console.log('hello');
     axios
       .delete(`${serverURL}/user/favorite`, {
         data : {
