@@ -30,8 +30,7 @@ function App() {
   const [newUserInfo, setNewUserInfo] = useState('');
 
   //!favorite : 초기값 DB에서 받아오기, test의 결과가 push될 수 있게 하려면 app.js에 있어야함.
-  const initial = ['coding', 'rice'];
-  const [favorite, setFavorite] = useState(initial);
+  const [favorite, setFavorite] = useState('');
 
   //!로그인 시, 회원정보 업데이트
   const isAuthenticated = () => {
@@ -52,6 +51,19 @@ function App() {
       .catch((err) => console.log(err));
   };
 
+  const getFavorite = () => {
+    const accessToken = localStorage.getItem('accessToken');
+    axios
+      .get(`${serverURL}/user/favorite`, {
+        headers: { Authorization: `bearer ${accessToken}` },
+      })
+      .then((res) => {
+        setFavorite(res.data.data.favoriteList);
+      })
+      .catch((err) => console.log(err));
+  }
+  console.log(favorite)
+
   const handleResponseSuccess = () => {
     isAuthenticated();
   };
@@ -65,6 +77,7 @@ function App() {
 
   useEffect(() => {
     isAuthenticated();
+    getFavorite();
   }, []);
 
   // * ==========[test.js]==========
@@ -131,7 +144,14 @@ function App() {
         </Route>
         {isTestid === 0 ? null : (
           <Route exact path={`/test/${isTestid}`}>
-            <TestPage selectList={selectList} serverURL={serverURL} isTestid={isTestid}/>
+            <TestPage 
+              selectList={selectList} 
+              serverURL={serverURL} 
+              isTestid={isTestid} 
+              setFavorite={setFavorite} 
+              favorite={favorite}
+              isLogin={isLogin}
+            />
           </Route>
         )}
       </Switch>
