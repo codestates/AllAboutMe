@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import './mypage.css';
 import styled from 'styled-components';
 import axios from 'axios';
+import Footer from './footer';
 
 //!styled in js
 
@@ -165,7 +166,22 @@ function Mypage({
 
   //!tag 삭제하는 함수
   const removeTags = (indexToRemove) => {
+    const deleteFavorite = favorite.filter((el, index) => index === indexToRemove)
+    const deleteFavoriteId = deleteFavorite[0].id
+   
     setFavorite(favorite.filter((el, index) => index !== indexToRemove));
+    const accessToken = localStorage.getItem('accessToken');
+    axios
+      .delete(`${serverURL}/user/favorite`, 
+      { id : deleteFavoriteId },
+      {
+        headers: { Authorization: `bearer ${accessToken}` },
+        withCredentials: true,
+      })
+      .then((res) => {
+        console.log('OK!')
+      })
+      .catch((err) => console.log(err));
   };
 
   //!탭 이동 함수
@@ -290,7 +306,7 @@ function Mypage({
                     {favorite.map((tag, index) => {
                       return (
                         <li key={index} className='tag'>
-                          <span className='tag-title'>{tag}</span>
+                          <span className='tag-title'>{tag.name}</span>
                           <span
                             className='tag-close-icon'
                             onClick={() => removeTags(index)}
@@ -341,9 +357,9 @@ function Mypage({
             </p>
           </div>
         </div>
-        {/* <footer className='mypage_footer'>
+        <footer className='mypage_footer'>
           <Footer />
-        </footer> */}
+        </footer>
       </div>
     </>
   );

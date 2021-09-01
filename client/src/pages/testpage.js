@@ -2,9 +2,10 @@ import axios from 'axios';
 import React, { useState, useEffect } from 'react';
 import './testpage.css';
 import Footer from './footer';
+import { useHistory } from 'react-router-dom';
 
 
-function TestPage({ selectList }) {
+function TestPage({ selectList, setFavorite, favorite, serverURL, isLogin }) {
 
   // const [remain, setRemain] = useState(0);
   // const [roundName, setRoundName] = useState(['예선전']);
@@ -15,6 +16,7 @@ function TestPage({ selectList }) {
   const [round, setRound] = useState(1); 
   const [display, setDisplay] = useState([]);
   const [select, setSelect] = useState([]);
+  const history = useHistory();
 
   useEffect(() => {
     category.sort(() => Math.random() - 0.5);
@@ -52,13 +54,35 @@ function TestPage({ selectList }) {
     setRound(round + 1);
     handleRoundName();
     setSelect([...select, data]);
-  }
+    if(roundName === '우승' && select.length === 1) {
+      if(isLogin) {
+        const accessToken = localStorage.getItem('accessToken');
+        const { id, name, testId }= select[0]
+ 
+        setFavorite([...favorite, select[0]]);
+        axios
+          .post(`${serverURL}/user/favorite`, 
+          { id, name, testId },
+          {
+            headers: { Authorization: `bearer ${accessToken}` },
+          })
+          .then((res) => {
+            if(res.status === 200) {
+              history.push('/mypage')
+            }
+          })
+          .catch((err) => console.log(err));
+      } else {
+        alert('결과를 저장하시려면 회원가입을 해주세요.')
+        history.push('/signup')
+      }
+    }
+  }  
 
   return (
-    <div className='testpage_container'>
-      <div className='testpage_tournament_score'> {round}/{remain}
-      </div>     
-      <div className='testpage_match_name'>🥊 {roundName}</div>
+    <div className='testpage_container'>   
+      <div className='testpage_tournament_score'>{round}/{remain}</div>     
+      <div className='testpage_match_name'>{roundName} 🥊 </div>
       <div className='testpage_body_wrap'>
         {display.map(el => {
           return (

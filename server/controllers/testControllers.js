@@ -15,7 +15,7 @@ module.exports = {
     const testId = req.params.id;
     try {
       const result = await select.findAll({
-        attributes: ['id', 'name', 'image'],
+        attributes: ['id', 'name', 'image', 'testId'],
         where: { testId },
       })
       return res.status(200).send({ data : { test : result }, message: 'ok'});
