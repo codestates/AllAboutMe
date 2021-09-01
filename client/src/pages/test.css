@@ -1,12 +1,11 @@
-*{
-  margin: 0;
-  padding: 0;
-}
-
 .test{
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 1200px;
+  height: 1200px;
+  background-color: rgb(249, 240, 227);
 }
 
 .test_container {

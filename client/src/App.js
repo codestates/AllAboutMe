@@ -125,6 +125,7 @@ function App() {
             categorys={categorys}
             selects={selects}
             testId={testId}
+            serverURL={serverURL}
           />
         </Route>
         {isTestid === 0 ? null : (
