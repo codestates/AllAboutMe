@@ -1,7 +1,5 @@
 * {
   font-family: 'Nanum Gothic', sans-serif;
-  margin: 0px;
-  padding: 0px;
   box-sizing: border-box;
   width: 100%;
 }
@@ -21,16 +19,19 @@
 } */
 
 .home {
-  width: 100%;
-  margin-top: 50px;
+  display: flex;
   background-color: rgb(249, 240, 227);
+  margin-top: 50px;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
   justify-content: center;
-  align-items: center;
-  justify-items: center;
+  flex-direction: column;
 }
 
 
 .home_container1 {
+  background-color: rgb(249, 240, 227);
   width: 100%;
   height: 700px;
   display: flex;
@@ -45,7 +46,7 @@
   height: 150px;
   display: flex;
   font-size: 100px;
-  color: white;
+  color: #8EC0E4;
   justify-content: center;
   align-items: center;
   justify-items: center;
@@ -56,7 +57,7 @@
 }
 
 .home_container1 h1:hover{
-  color: #8EC0E4;
+  color: white;
 }
 
 

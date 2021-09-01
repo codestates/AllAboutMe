@@ -98,6 +98,7 @@ export const ModifyInput = styled.div`
     outline: none;
     font-size: 20px;
     width: 250px;
+    background-color: #00ff0000;
   }
   > button {
     border-radius: 25px;

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import axios from 'axios';
 import './signup.css';
+import Footer from './footer';
 
 axios.defaults.withCredentials = true;
 
@@ -83,6 +84,7 @@ function SignUp({ serverURL }) {
   };
 
   return (
+    <div className='signup'>
     <div className='signup-container'>
       <div className='signup-logo'>Sign up</div>
       <form onSubmit={(e) => e.preventDefault()}>
@@ -139,6 +141,10 @@ function SignUp({ serverURL }) {
       >
         Join us !
       </button>
+      <div className='signup_footer'>
+      <Footer />
+      </div>
+    </div>
     </div>
   );
 }
