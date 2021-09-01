@@ -6,7 +6,7 @@ import Slider from 'react-slick';
 import axios from 'axios';
 import { useHistory, withRouter } from 'react-router-dom';
 
-function Test({ handleCatagory, categorys, testId }) {
+function Test({ handleCatagory, categorys, testId, selects }) {
   const history = useHistory();
   const settings = {
     infinite: false,
@@ -37,10 +37,22 @@ function Test({ handleCatagory, categorys, testId }) {
   if (categorys.length === 0) {
     loadTest()
   } 
+
+  function selectList (testId) {
+    axios.get(
+      `http://localhost:4000/test/${testId}`,
+      { 'Content-Type': 'application/json', 'withCredentials': true }
+    )
+      .then((data) => {
+        let test = data.data.data.test;
+        selects(test);
+      })
+  }
   
   function clickImage (value) {
     let endpoint = value.id
     testId(endpoint)
+    selectList(endpoint)
     history.push(`/test/${endpoint}`)
 
   }
