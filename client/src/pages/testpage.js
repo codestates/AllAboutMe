@@ -6,51 +6,39 @@ import './testpage.css';
 function TestPage({ selectList }) {
 
   const [category, setCategory] = useState(selectList);
-  const [remain, setRemain] = useState(0);
+  const [remain, setRemain] = useState(category.length - 1);
   const [roundName, setRoundName] = useState(['예선전']);
+  const [selectCnt, setSelectCnt] = useState(0);
+  const [round, setRound] = useState(1); 
+  const [display, setDisplay] = useState([]);
+  const [select, setSelect] = useState([]);
 
+  useEffect(() => {
+    category.sort(() => Math.random() - 0.5);
+    setCategory(category);
+    // setDisplay([category[selectCnt], category[selectCnt + 1]]);
+  }, []);
 
+  const handleRoundName = () => {
+    // if (remain - 1 === round) {
+    //   setRoundName('결승전')
+    // } else if (remain - 3) {
 
-  // useEffect(() => {
-  //   category.sort(() => Math.random() - 0.5)
-  //   setImgs(category);
-  //   setDisplay([category[0], category[1]])
-  //   setRemain(category.length);
-  // }, []);
+    // }
+  }
 
+  const clickEvent = (data) => {
+    // setRound(round + 1);
+    // setSelect([...select, data]);
 
-  // function clickHandler (food) {
-
-  //   if (img.length <= 2){
-  //       if (winners.length === 0){
-  //           setDisplay([img]);
-  //         }
-  //         else{
-  //             let updatedImg = [...winners, img];
-  //             setImgs(updatedImg);
-  //             setDisplay([updatedImg[0], updatedImg[1]]);
-  //             setWinners([]);
-  //           }
-
-  //         }else if(imgs.length > 2){
-  //             setWinners([...winners, img]);
-  //             setDisplay([imgs[2], imgs[3]]);
-  //             setImgs(imgs.slice(2));
-  //           }
-  //           setRemain(remain-1)
-  //           if(remain === 3){
-  //               setRoundName('결승전')
-  //             }
-  //             if(remain === 2){
-  //                 setRoundName('당첨!')
-  //               }
-  //             console.log(winners)
-  // console.log(imgs.length)
-  // console.log('imgs',imgs)
-  // }
-
-  function clickEvent (data) {
-
+    // if (selectCnt === category.length) {
+    //   setCategory(select);
+    //   setSelectCnt(0);
+    //   setSelect([]);
+    // } else {
+    //   setSelectCnt(selectCnt + 2);
+    //   setDisplay([category[selectCnt], category[selectCnt + 1]])
+    // }
   }
 
 
@@ -58,11 +46,11 @@ function TestPage({ selectList }) {
 
   return (
     <div className='testpage_container'>
-      <div className='testpage_tournament_score'> 1/{remain}
+      <div className='testpage_tournament_score'> {round}/{remain}
       </div>     
       <div className='testpage_match_name'>🥊 {roundName}</div>
       <div className='testpage_body_wrap'>
-        {category.map(el => {
+        {display.map(el => {
           return (
             <div key={el.id} className='testpage_matchImg_matchBtn_container'>
               <div className='testpage_matchImg_box'>
