@@ -24,13 +24,31 @@ function Home() {
   return (
     <div className='home'>
       <div className='home_container1'>
-        <img src='/thinker.jpeg' alt='' className='thinker'/>
+        <img src='/homeM.jpeg' alt='' className='thinker'/>
         <h1 className='home_bigscreen'>All About Me</h1>
         <h1 className='home_smallscreen'>All About Me</h1>
       </div>
       <div className='sa sa-up home_container2'>
-        <img src='/logo2.png' alt='logo' className='home_logo' />
-        <p>
+        <img src='/logo3.png' alt='logo' className='home_logo3' />
+        <div className='home_intro'>
+          <span className='first'>자신에 대한 질문에 망설임없이 대답할 수 있으신가요?</span>
+          <span className='dot'>.</span>
+          <span className='dot'>.</span>
+          <span className='dot'>.</span>
+          <span className='second'>주변 소음에 치우쳐 바쁜 일상 속,</span>
+          <span className='second'>점점 ‘나’ 자신에 대한 기억이 옅어지는 것을 느낄 수 있습니다.</span>
+          <span className='second'>About Me는</span>
+          <span className='second'>내가 무엇을 좋아하는지, 나의 관심사는 무엇인지에 대한 고민을 유도하여</span>
+          <span className='second'>자신이 원하는 것에 대해 선명해지는 시간을 가질 수 있게 도와줍니다.</span>
+          <div className='home_container_button'>
+            <Link to='/test'>
+              <button type='button' onClick='location.href=signup.js'>
+                start
+              </button>
+            </Link>
+          </div>
+        </div>
+        {/* <p>
           자신에 대한 질문에 망설임없이 대답할 수 있으신가요?
           <br />
           <br />
@@ -51,7 +69,7 @@ function Home() {
               </button>
             </Link>
           </div>
-        </p>
+        </p> */}
       </div>
       <div className='sa sa-up home_container3'>
         <p>
@@ -66,7 +84,7 @@ function Home() {
         <img src='/test.gif' alt='logo' className='home_testpage' />
       </div>
       <div className='sa sa-up home_container4'>
-        <img src='/home.png' alt='logo' className='home_mypage' />
+        <img src='/mypage.gif' alt='logo' className='home_mypage' />
         <p>
           이로써, 스스로에 대해 알아보고 기억할 수 있으며,
           <br />
