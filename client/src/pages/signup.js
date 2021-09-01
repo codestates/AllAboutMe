@@ -15,6 +15,11 @@ function SignUp({ serverURL }) {
   });
   const [message, setMessage] = useState('입력해주세요.');
   const history = useHistory();
+  const [agree, setAgree] =  useState(false);
+
+  const clickAgree = () => {
+    setAgree(!agree);
+  }
 
   const handleInputValue = (key) => (e) => {
     setUserInfo({ ...userInfo, [key]: e.target.value });
@@ -61,6 +66,12 @@ function SignUp({ serverURL }) {
       return;
     } 
 
+    
+    if (agree !== true) {
+      setMessage('동의합니다 클릭을 해주세요.')
+      return ;
+    }
+
     setMessage('Join us 버튼을 눌러주세요')
 
     axios
@@ -76,11 +87,12 @@ function SignUp({ serverURL }) {
         if (data.status === 200) {
           history.push('/login');
           alert('회원가입이 완료되었습니다.');
-      }})
-      .catch((err) => {
-        if(err.response.status === 409) alert('이미 존재하는 이메일입니다.')
+        }
       })
-    
+      .catch((err) => {
+        if (err.response.status === 409) alert('이미 존재하는 이메일입니다.')
+      })
+
   };
 
   return (
@@ -130,7 +142,7 @@ function SignUp({ serverURL }) {
       </div>
       <div>
         <div className='signup-checkbox-agree-container'>
-          <input className='signup-checkbox' type='checkbox' />
+          <input className='signup-checkbox' type='checkbox' onClick={() => clickAgree()}/>
           <div className='signup-agree'>동의합니다.</div>
         </div>
       </div>
