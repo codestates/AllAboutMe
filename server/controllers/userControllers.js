@@ -101,6 +101,9 @@ module.exports = {
       return res.status(404).send({ message: "undefined user" });
     }
 
+    await favorite.destroy({
+      where: { userId }
+    });
     await user.destroy({
       where: { id: userId }
     })
