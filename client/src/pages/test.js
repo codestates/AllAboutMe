@@ -6,7 +6,7 @@ import Slider from 'react-slick';
 import axios from 'axios';
 import { useHistory, withRouter } from 'react-router-dom';
 
-function Test({ handleCatagory, categorys, testId, selects }) {
+function Test({ handleCatagory, categorys, testId, selects, serverURL }) {
   const history = useHistory();
   const settings = {
     infinite: false,
@@ -25,7 +25,7 @@ function Test({ handleCatagory, categorys, testId, selects }) {
 
   function loadTest () {
     axios.get(
-      'http://localhost:4000/test',
+      `${serverURL}/test`,
       {'Content-Type': 'application/json', 'withCredentials': true}
     )
     .then((data) => {

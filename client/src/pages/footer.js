@@ -4,7 +4,6 @@ import './footer.css';
 function Footer() {
   return (
     <>
-      <div>
         <div className='footer'>
           <div className='footer_container'>
             <h3>Contact</h3>
@@ -44,7 +43,6 @@ function Footer() {
         <div className='footer_bottom'>
           <p>copyright &copy;2021 슬기로운 코딩생활 all right reserved.</p>
         </div>
-      </div>
     </>
   );
 }
