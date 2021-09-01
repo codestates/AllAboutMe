@@ -13,9 +13,9 @@
     background-color: rgb(249, 240, 227);
 }
 .signup-container{
-  width: 100%;
-  height: 420px;
-  margin-top: 100px;
+    width: 100%;
+    height: 420px;
+    margin-top: 100px;
 }
 
 .signup-logo{
@@ -82,8 +82,8 @@ input::placeholder{
 }
 
 .signup-checkbox{
-  width : 20px;
-  display: inline-block;
+    width : 20px;
+    display: inline-block;
 }
 
 .signup-agree{
@@ -93,22 +93,21 @@ input::placeholder{
 }
 
 .signup-button {
-  width: 130px;
-  height: 50px;
-  margin-top : 20px;
-  border-radius: 25px;
-  border: solid #8EC0E4;
-  background-color:rgba(255, 255, 255, 0);
-  color: #8EC0E4;
-  font-size: 20px;
-  font-family: Georgia, "Times New Roman", serif;
-  display : table;
-  margin-left: auto;
-  margin-right: auto;
-  }
+    width: 130px;
+    height: 50px;
+    margin-top : 20px;
+    border-radius: 25px;
+    border: solid #8EC0E4;
+    background-color:rgba(255, 255, 255, 0);
+    color: #8EC0E4;
+    font-size: 20px;
+    font-family: Georgia, "Times New Roman", serif;
+    display : table;
+    margin-left: auto;
+    margin-right: auto;
+}
 
-  .signup_footer{
-      position: fixed;
-      bottom: 0;
-  }
-  
+    .signup_footer{
+    position: fixed;
+    bottom: 0;
+} 

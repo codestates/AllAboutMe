@@ -5,6 +5,8 @@ import styled from 'styled-components';
 import axios from 'axios';
 
 //!styled in js
+
+
 export const TagsInput = styled.div`
   display: flex;
   align-items: flex-start;
@@ -14,6 +16,10 @@ export const TagsInput = styled.div`
   padding: 0 8px;
   border: 1px solid rgb(214, 216, 218);
   border-radius: 6px;
+
+  @media only screen and (max-width: 850px) {
+    width: 450px
+  }
 
   > ul {
     display: flex;
@@ -78,6 +84,11 @@ export const ModifyInput = styled.div`
   text-align: center;
   border: 1px solid rgb(214, 216, 218);
   border-radius: 6px;
+
+  @media only screen and (max-width: 850px) {
+    width: 450px
+  }
+
   > input {
     text-decoration: none;
     border: solid 0px;
@@ -112,6 +123,11 @@ export const DeleteUser = styled.div`
   border: 1px solid rgb(214, 216, 218);
   border-radius: 6px;
   padding: 10px;
+
+  @media only screen and (max-width: 850px) {
+    width: 450px
+  }
+  
   > div {
     font-family: 'Times New Roman', Times, serif;
     margin-top: 10px;
