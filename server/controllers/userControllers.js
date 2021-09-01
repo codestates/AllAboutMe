@@ -84,7 +84,7 @@ module.exports = {
     }
 
     await favorite.destroy({
-      where: { id: req.body.authUserId }
+      where: { id: req.body.id }
     })
 
     return res.status(200).send('delete user favorite');
