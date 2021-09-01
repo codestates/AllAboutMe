@@ -24,6 +24,11 @@
   align-items: flex-start;
   justify-content: center;
   text-align: center;
+  transition: 1;
+}
+
+.test_container:hover{
+  opacity: 0.8;
 }
 
 .slick-slide {
@@ -36,10 +41,13 @@
     display: flex;
     float: left;
     display: flex;
+    margin-bottom: 10px;
     justify-content: center;
     align-items: center;
     justify-items: center;
+    transition: 1;
 }
+
 
 .test_text {
   font-size: 20px;
@@ -74,5 +82,4 @@
   .test_container {
     width: 400px;
   }
-
 }
