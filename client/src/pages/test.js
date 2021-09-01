@@ -6,7 +6,7 @@ import Slider from 'react-slick';
 import axios from 'axios';
 import { useHistory, withRouter } from 'react-router-dom';
 
-function Test({ handleCatagory, categorys, testId, selects, serverURL }) {
+function Test({ handleCatagory, categorys, testId, selects, serverURL}) {
   const history = useHistory();
   const settings = {
     infinite: false,

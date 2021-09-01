@@ -126,11 +126,12 @@ function App() {
             selects={selects}
             testId={testId}
             serverURL={serverURL}
+            setIstestid={setIstestid}
           />
         </Route>
         {isTestid === 0 ? null : (
           <Route exact path={`/test/${isTestid}`}>
-            <TestPage selectList={selectList}/>
+            <TestPage selectList={selectList} serverURL={serverURL} isTestid={isTestid}/>
           </Route>
         )}
       </Switch>
