@@ -5,6 +5,8 @@ import './testpage.css';
 
 function TestPage({ selectList }) {
 
+  // const [remain, setRemain] = useState(0);
+  // const [roundName, setRoundName] = useState(['예선전']);
   const [category, setCategory] = useState(selectList);
   const [remain, setRemain] = useState(category.length - 1);
   const [roundName, setRoundName] = useState(['예선전']);
@@ -48,7 +50,7 @@ function TestPage({ selectList }) {
     <div className='testpage_container'>
       <div className='testpage_tournament_score'> {round}/{remain}
       </div>     
-      <div className='testpage_match_name'>🥊 {roundName}</div>
+      <div className='testpage_match_name'>🥊 {}</div>
       <div className='testpage_body_wrap'>
         {display.map(el => {
           return (
