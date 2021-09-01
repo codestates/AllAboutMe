@@ -59,7 +59,7 @@ function TestPage({ selectList, setFavorite, favorite, serverURL, isLogin }) {
         const accessToken = localStorage.getItem('accessToken');
         const { id, name, testId }= select[0]
  
-        setFavorite([...favorite, select[0]]);
+        //setFavorite([...favorite, select[0]]);
         axios
           .post(`${serverURL}/user/favorite`, 
           { id, name, testId },

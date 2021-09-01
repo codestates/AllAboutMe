@@ -130,6 +130,7 @@ function App() {
             serverURL={serverURL}
             handleLogout={handleLogout}
             setUserInfo={setUserInfo}
+            getFavorite={getFavorite}
           />)}
         </Route>
         <Route exact path='/test'>
