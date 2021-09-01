@@ -68,7 +68,7 @@ function App() {
     isAuthenticated();
   }, []);
 
-  // * ==========[/test]==========
+  // * ==========[test.js]==========
   // 테스트 리스트 전부 가져오기
   const handleCatagory = (data) => {
     setCategorys(data);
@@ -77,6 +77,11 @@ function App() {
   const testId = (id) => {
     setIstestid(id);
   };
+
+  const selects = (list) => {
+    setSelectList(list);
+  }
+  console.log(selectList)
   // * ==========[end]==========
 
   return (
@@ -118,12 +123,13 @@ function App() {
           <Test
             handleCatagory={handleCatagory}
             categorys={categorys}
+            selects={selects}
             testId={testId}
           />
         </Route>
         {isTestid === 0 ? null : (
           <Route exact path={`/test/${isTestid}`}>
-            <TestPage isTestid={isTestid} />
+            <TestPage selectList={selectList}/>
           </Route>
         )}
       </Switch>
