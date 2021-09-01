@@ -20,7 +20,7 @@
 
 .home {
   display: flex;
-  background-color: rgb(249, 240, 227);
+  background-color: white;
   margin-top: 50px;
   max-width: 1200px;
   margin-left: auto;
@@ -30,14 +30,29 @@
 }
 
 
+
 .home_container1 {
-  background-color: rgb(249, 240, 227);
+  background-color: white;
   width: 100%;
   height: 700px;
   display: flex;
   justify-content: center;
   align-items: center;
   justify-items: center;
+  margin-top: 120px;
+  position: relative;
+}
+
+.thinker {
+  z-index: 0;
+  width: 100%;
+  mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
+}
+
+.home_container1 h1 {
+  z-index: 10;
+  position: absolute;
+  margin-top: -780px;
 }
 
 .home_bigscreen{
@@ -46,7 +61,7 @@
   height: 150px;
   display: flex;
   font-size: 100px;
-  color: #8EC0E4;
+  color: white;
   justify-content: center;
   align-items: center;
   justify-items: center;
@@ -57,16 +72,17 @@
 }
 
 .home_container1 h1:hover{
-  color: white;
+  color: #8EC0E4;
 }
 
 
 .home_container2 {
   width: 100%;
-  height: 1000px;
+  height: 600px;
   display: flex;
   flex-direction: row;
   justify-content: center;
+  background-color: white;
 }
 
 .home_logo{
@@ -91,16 +107,16 @@
 
 .home_container3 {
   width: 100%;
-  height: 900px;
+  height: 600px;
   display: flex;
   flex-direction: row;
   justify-content: center;
 }
 
 .home_testpage{
-  margin-right: 50px;
-  width: 600px;
-  height: 400px;
+  margin-right: 30px;
+  width: 700px;
+  height: 500px;
 }
 
 .home_container3 p{
@@ -108,9 +124,9 @@
   font-size: 15px;
   height: 100%;
   width: auto;
-  margin-left: 150px;
-  margin-right: 40px;
-  padding-top: 300px;
+  margin-left: 30px;
+  margin-right: 30px;
+  padding-top: 400px;
   color: #8EC0E4;
   font-weight: 700;
   text-align: end;
@@ -127,9 +143,9 @@
 }
 
 .home_mypage{
-  margin-left: 50px;
-  width: 600px;
-  height: 400px;
+  margin-left: 30px;
+  width: 700px;
+  height: 500px;
 }
 
 .home_container4 p{
@@ -137,8 +153,8 @@
   font-size: 15px;
   height: 250px;
   margin: 20px;
-  margin-left: 40px;
-  padding-top: 315px;
+  margin-left: 10px;
+  padding-top: 430px;
   color: #8EC0E4;
   font-weight: 700;
   width: auto;
@@ -154,7 +170,7 @@
   justify-content: center;
   justify-items: center;
   display: flex;
-  padding-bottom: 100px;
+  padding-bottom: 50px;
   padding-top: 50px;
 }
 
@@ -179,7 +195,7 @@
   justify-content: center;
   justify-items: center;
   display: flex;
-  padding-bottom: 200px;
+  padding-bottom: 100px;
   margin-top: -300px;
 }
 

@@ -168,18 +168,20 @@ function Mypage({
   const removeTags = (indexToRemove) => {
     const deleteFavorite = favorite.filter((el, index) => index === indexToRemove)
     const deleteFavoriteId = deleteFavorite[0].id
+    console.log(deleteFavoriteId)
    
     setFavorite(favorite.filter((el, index) => index !== indexToRemove));
     const accessToken = localStorage.getItem('accessToken');
     axios
-      .delete(`${serverURL}/user/favorite`, 
-      { id : deleteFavoriteId },
-      {
-        headers: { Authorization: `bearer ${accessToken}` },
-        withCredentials: true,
+      .delete(`${serverURL}/user/favorite`, {
+        data : {
+          id : deleteFavoriteId
+        },
+        headers: { Authorization: `bearer ${accessToken}`},
+        withCredentials: true
       })
       .then((res) => {
-        console.log('OK!')
+        if(res.status === 200) console.log('OK!')
       })
       .catch((err) => console.log(err));
   };
@@ -245,7 +247,6 @@ function Mypage({
         .catch((err) => console.log(err));
     }
   };
-  console.log(newUserInfo);
 
   //!회원정보 삭제 함수
   const handleDeleteUser = () => {
@@ -262,6 +263,7 @@ function Mypage({
         .then((res) => {
           if (res.status === 200) {
             alert('회원정보가 삭제되었습니다.');
+            setFavorite([]);
             handleLogout();
           }
         });

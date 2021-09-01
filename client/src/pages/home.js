@@ -24,11 +24,12 @@ function Home() {
   return (
     <div className='home'>
       <div className='home_container1'>
+        <img src='/thinker.jpeg' alt='' className='thinker'/>
         <h1 className='home_bigscreen'>All About Me</h1>
         <h1 className='home_smallscreen'>All About Me</h1>
       </div>
       <div className='sa sa-up home_container2'>
-        <img src='/logo3.png' alt='logo' className='home_logo' />
+        <img src='/logo2.png' alt='logo' className='home_logo' />
         <p>
           자신에 대한 질문에 망설임없이 대답할 수 있으신가요?
           <br />
@@ -62,16 +63,14 @@ function Home() {
           <br />
           본인에게 가장 잘 맞는 취향이 어떤 것인지 알 수 있습니다.
         </p>
-        <img src='/grayimg.png' alt='logo' className='home_testpage' />
+        <img src='/test.gif' alt='logo' className='home_testpage' />
       </div>
       <div className='sa sa-up home_container4'>
-        <img src='/grayimg.png' alt='logo' className='home_mypage' />
+        <img src='/home.png' alt='logo' className='home_mypage' />
         <p>
           이로써, 스스로에 대해 알아보고 기억할 수 있으며,
           <br />
           나아가 취미, 직업관, 가치관 등의 변화, 발전으로 이어질 수 있습니다.
-          <br />
-          또한, post 기능은 공통 관심사를 가진 사람들과 소통할 수 있습니다.
         </p>
       </div>
       <div className='sa sa-up home_button'>
