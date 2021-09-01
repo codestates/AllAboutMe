@@ -24,7 +24,6 @@ function TestPage({ selectList }) {
 
   useEffect(() => {
     if (round >= remain) {
-
       setDisplay(select);
     } else if (selectCnt === category.length) {
       setCategory(select);
@@ -38,19 +37,18 @@ function TestPage({ selectList }) {
   }, [select])
 
   const handleRoundName = () => {
-    if (selectList.length - 2 === round) {
-      setRoundName('결승전')
+    if (remain - 1  === round) {
+      setRoundName('우승');
+    } else if (selectList.length - 2 === round) {
+      setRoundName('결승전');
     } else if (selectList.length - 5 === round) {
-      setRoundName('4강전')
+      setRoundName('4강전');
     } else if (remain - 9 === round) {
       setRoundName('8강전');
-    }
+    } 
   }
 
   const clickEvent = (data) => {
-    if (selectList.length - 1 === round && select.length === 1) {
-      console.log('1등')
-    }
     setRound(round + 1);
     handleRoundName();
     setSelect([...select, data]);
@@ -64,7 +62,7 @@ function TestPage({ selectList }) {
       <div className='testpage_body_wrap'>
         {display.map(el => {
           return (
-            <div key={el.id} className='testpage_matchImg_matchBtn_container'>
+            <div key={el.id} className='testpage_matchImg_matchBtn_container' onClick={() => clickEvent(el)}>
               <div className='testpage_matchImg_box'>
                 <img
                   className='testpage_matchImg'
@@ -73,7 +71,7 @@ function TestPage({ selectList }) {
                 />
               </div>
               <div>
-                <button className='testpage_btn' onClick={() => clickEvent(el)}>{el.name}</button>
+                <button className='testpage_btn' >{el.name}</button>
               </div>
             </div>
           )
