@@ -1,0 +1,193 @@
+@font-face{
+    font-family: "roman";
+    src: url("../font/timesnewroman.ttf")
+}
+
+@font-face{
+    font-family: "NanumMyeongjo";
+    src: url("../font/NanumMyeongjo.ttf")
+}
+
+@font-face{
+    font-family: "NanumBarunGothic";
+    src: url("../font/NanumBarunGothic.ttf")
+}
+
+
+
+.mypage_container {
+    display: flex;
+    justify-content: flex-start;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1200px;
+    height: 1200px;
+    background-color: rgb(249, 240, 227);
+    flex-direction: column;
+}
+
+.mypage_userInfo{
+    margin-top: 90px;
+    width: 100%;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.userInfo_img {
+    width: 200px;
+    margin: 0px 50px;
+}
+
+.userInfo_img img{
+    border: solid 0px;
+    border-radius: 100px;
+}
+
+.userInfo_detail{
+    width: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-bottom: 10px;
+}
+
+.userInfo_detail span{
+    padding-top: 2px;
+    padding-bottom: 2px;
+    font-family: "NanumMyeongjo";
+    font-weight: 600;
+    word-spacing: 7px;
+}
+
+.mypage_tabContainer{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.mypaga_tabMenu{
+    width: 80%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    list-style: none;
+    text-align: center;
+    cursor: pointer;
+    border-bottom: solid 2px;
+    border-color: #8EC0E4;
+    padding: 20px;
+}
+
+.mypaga_tabMenu li{
+    font-family: "NanumMyeongjo";
+    font-weight: 800;
+    color: #8EC0E4;
+}
+
+.currentTab{
+    padding-top: 20px;
+    width: 700px;
+    height: 200px;
+    justify-content: flex-start;
+    margin: 0px 55px;
+}
+.currentTab p{
+    font-family: "NanumMyeongjo";
+    width: auto;
+}
+
+.mypage_footer{
+    position: fixed;
+    bottom: 0;
+}
+
+@media screen and (max-width: 850px){
+    
+    .mypage_userInfo{
+        margin-top: 70px;
+        width: 100%;
+        height: 200px;
+        display: flex;
+        justify-content: center;
+        margin-bottom: 20px;
+    }
+    
+    .userInfo_img {
+        margin-left: 0px;
+        width: 200px;
+    }
+    
+    .userInfo_img img{
+        border: solid 0px;
+        border-radius: 100px;
+    }
+    
+    .userInfo_detail{
+        width: auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding-bottom: 10px;
+    }
+    
+    .userInfo_detail span{
+        padding-top: 2px;
+        padding-bottom: 2px;
+        font-family: "NanumMyeongjo";
+        font-weight: 600;
+        word-spacing: 7px;
+    }
+    
+    .mypage_tabContainer{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+    
+    .mypaga_tabMenu{
+        width: 450px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        list-style: none;
+        text-align: center;
+        cursor: pointer;
+        border-bottom: solid 2px;
+        border-color: #8EC0E4;
+        padding: 20px;
+    }
+    
+    .mypaga_tabMenu li{
+        font-family: "NanumMyeongjo";
+        font-weight: 800;
+        color: #8EC0E4;
+    }
+    
+    .currentTab{
+        padding-top: 20px;
+        width: 450px;
+        height: 200px;
+        margin: 0px 55px;
+    }
+    .currentTab p{
+        font-family: "NanumMyeongjo";
+        width: 200px;
+    }
+    
+    .mypage_footer{
+        position: fixed;
+        bottom: 0;
+    }
+    
+    .tags{
+    width: 450px;
+    }
+
+}
+
+
