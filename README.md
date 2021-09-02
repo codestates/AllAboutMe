@@ -19,7 +19,7 @@ All About Me는 바로 이런 사람들을 위한 서비스입니다.
    &nbsp;
   <img src="./client/public/test.gif" width=500>
 
-- 테스트 결과를 모아 한눈에 확인할 수 있어요.
+- 테스트 결과를 모아 한눈에 확인할 수 있어요.  
   &nbsp;
   <img src="./client/public/mypage.gif" width=500>
 
